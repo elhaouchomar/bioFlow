@@ -1,0 +1,27 @@
+services:
+  redis:
+    image: redis:alpine
+    container_name: bioflow_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  worker:
+    build: .
+    container_name: bioflow_worker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./workspace:/app/workspace
+    working_dir: /app
+    environment:
+      - REDIS_ADDR=redis:6379
+      - HOST_WORKSPACE=${PWD}/workspace
+    depends_on:
+      - redis
+    privileged: true
+    command: ["./pipeline", "-mode", "worker"]
+
+volumes:
+  redis_data:

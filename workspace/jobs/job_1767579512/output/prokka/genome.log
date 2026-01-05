@@ -1,0 +1,139 @@
+[02:19:15] This is prokka 1.15.6
+[02:19:15] Written by Torsten Seemann <torsten.seemann@gmail.com>
+[02:19:15] Homepage is https://github.com/tseemann/prokka
+[02:19:15] Local time is Mon Jan  5 02:19:15 2026
+[02:19:15] You are not telling me who you are!
+[02:19:15] Operating system is linux
+[02:19:15] You have BioPerl 1.7.8
+[02:19:15] System has 12 cores.
+[02:19:15] Will use maximum of 8 cores.
+[02:19:15] Annotating as >>> Bacteria <<<
+[02:19:15] Generating locus_tag from '/workspace/jobs/job_1767579512/output/shovill/contigs.fa' contents.
+[02:19:16] Setting --locustag KIPFMAPK from MD5 429f6a94f7fc005511097ae76a16d029
+[02:19:16] Re-using existing --outdir /workspace/jobs/job_1767579512/output/prokka
+[02:19:16] Using filename prefix: genome.XXX
+[02:19:16] Setting HMMER_NCPU=1
+[02:19:16] Writing log to: /workspace/jobs/job_1767579512/output/prokka/genome.log
+[02:19:16] Command: /prokka-1.15.6/bin/prokka --outdir /workspace/jobs/job_1767579512/output/prokka --force --prefix genome /workspace/jobs/job_1767579512/output/shovill/contigs.fa
+[02:19:16] Looking for 'aragorn' - found /usr/bin/aragorn
+[02:19:16] Determined aragorn version is v1.2 from 'ARAGORN v1.2.41 Dean Laslett'
+[02:19:16] Looking for 'barrnap' - found /usr/bin/barrnap
+[02:19:16] Determined barrnap version is v0.9 from 'barrnap 0.9'
+[02:19:16] Looking for 'blastp' - found /usr/bin/blastp
+[02:19:16] Determined blastp version is v2.12 from 'blastp: 2.12.0+'
+[02:19:16] Looking for 'cmpress' - found /usr/bin/cmpress
+[02:19:16] Determined cmpress version is v1.1 from '# INFERNAL 1.1.5 (Sep 2023)'
+[02:19:16] Looking for 'cmscan' - found /usr/bin/cmscan
+[02:19:16] Determined cmscan version is v1.1 from '# INFERNAL 1.1.5 (Sep 2023)'
+[02:19:16] Looking for 'egrep' - found /usr/bin/egrep
+[02:19:16] Looking for 'find' - found /usr/bin/find
+[02:19:16] Looking for 'grep' - found /usr/bin/grep
+[02:19:16] Looking for 'hmmpress' - found /usr/bin/hmmpress
+[02:19:16] Determined hmmpress version is v3.4 from '# HMMER 3.4 (Aug 2023); http://hmmer.org/'
+[02:19:16] Looking for 'hmmscan' - found /usr/bin/hmmscan
+[02:19:16] Determined hmmscan version is v3.4 from '# HMMER 3.4 (Aug 2023); http://hmmer.org/'
+[02:19:16] Looking for 'java' - found /usr/bin/java
+[02:19:16] Looking for 'makeblastdb' - found /usr/bin/makeblastdb
+[02:19:16] Determined makeblastdb version is v2.12 from 'makeblastdb: 2.12.0+'
+[02:19:16] Looking for 'minced' - found /usr/local/bin/minced
+[02:19:16] Determined minced version is v4.2 from 'minced 0.4.2'
+[02:19:16] Looking for 'parallel' - found /usr/bin/parallel
+[02:19:16] Determined parallel version is 20231122 from 'GNU parallel 20231122'
+[02:19:16] Looking for 'prodigal' - found /usr/bin/prodigal
+[02:19:16] Determined prodigal version is v2.6 from 'Prodigal V2.6.3: February, 2016'
+[02:19:16] Looking for 'prokka-genbank_to_fasta_db' - found /prokka-1.15.6/bin/prokka-genbank_to_fasta_db
+[02:19:16] Looking for 'sed' - found /usr/bin/sed
+[02:19:16] Looking for 'tbl2asn' - found /usr/bin/tbl2asn
+[02:19:16] Determined tbl2asn version is v25.3 from 'tbl2asn 25.3   arguments:'
+[02:19:16] Using genetic code table 11.
+[02:19:16] Loading and checking input file: /workspace/jobs/job_1767579512/output/shovill/contigs.fa
+[02:19:16] Wrote 40 contigs totalling 172670 bp.
+[02:19:16] Predicting tRNAs and tmRNAs
+[02:19:16] Running: aragorn -l -gc11  -w \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.fna
+[02:19:16] Found 0 tRNAs
+[02:19:16] Predicting Ribosomal RNAs
+[02:19:16] Running Barrnap with 8 threads
+[02:19:16] Found 0 rRNAs
+[02:19:16] Skipping ncRNA search, enable with --rfam if desired.
+[02:19:16] Total of 0 tRNA + rRNA features
+[02:19:16] Searching for CRISPR repeats
+[02:19:16] Found 0 CRISPRs
+[02:19:16] Predicting coding sequences
+[02:19:16] Contigs total 172670 bp, so using single mode
+[02:19:16] Running: prodigal -i \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.fna -c -m -g 11 -p single -f sco -q
+[02:19:16] Found 143 CDS
+[02:19:16] Connecting features back to sequences
+[02:19:16] Not using genus-specific database. Try --usegenus to enable it.
+[02:19:16] Annotating CDS, please be patient.
+[02:19:16] Will use 8 CPUs for similarity searching.
+[02:19:17] There are still 143 unannotated CDS left (started with 143)
+[02:19:17] Will use blast to search against /prokka-1.15.6/db/kingdom/Bacteria/IS with 8 CPUs
+[02:19:17] Running: cat \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.IS\.tmp\.1\.faa | parallel --gnu --plain -j 8 --block 3016 --recstart '>' --pipe blastp -query - -db /prokka-1.15.6/db/kingdom/Bacteria/IS -evalue 1e-30 -qcov_hsp_perc 90 -num_threads 1 -num_descriptions 1 -num_alignments 1 -seg no > \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.IS\.tmp\.1\.blast 2> /dev/null
+[02:19:18] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/genome.IS.tmp.1.faa
+[02:19:18] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/genome.IS.tmp.1.blast
+[02:19:18] There are still 137 unannotated CDS left (started with 143)
+[02:19:18] Will use blast to search against /prokka-1.15.6/db/kingdom/Bacteria/AMR with 8 CPUs
+[02:19:18] Running: cat \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.AMR\.tmp\.1\.faa | parallel --gnu --plain -j 8 --block 2928 --recstart '>' --pipe blastp -query - -db /prokka-1.15.6/db/kingdom/Bacteria/AMR -evalue 1e-300 -qcov_hsp_perc 90 -num_threads 1 -num_descriptions 1 -num_alignments 1 -seg no > \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.AMR\.tmp\.1\.blast 2> /dev/null
+[02:19:19] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/genome.AMR.tmp.1.faa
+[02:19:19] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/genome.AMR.tmp.1.blast
+[02:19:19] There are still 137 unannotated CDS left (started with 143)
+[02:19:19] Will use blast to search against /prokka-1.15.6/db/kingdom/Bacteria/sprot with 8 CPUs
+[02:19:19] Running: cat \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.sprot\.tmp\.1\.faa | parallel --gnu --plain -j 8 --block 2928 --recstart '>' --pipe blastp -query - -db /prokka-1.15.6/db/kingdom/Bacteria/sprot -evalue 1e-09 -qcov_hsp_perc 80 -num_threads 1 -num_descriptions 1 -num_alignments 1 -seg no > \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.sprot\.tmp\.1\.blast 2> /dev/null
+[02:19:22] Modify product: Uncharacterized ABC transporter ATP-binding protein Rv0986 => putative ABC transporter ATP-binding protein
+[02:19:22] Modify product: Probable subtilase-type serine protease DR_A0283 => putative subtilase-type serine protease
+[02:19:22] Modify product: Uncharacterized protein DR_A0282 => putative protein
+[02:19:22] Modify product: UPF0053 inner membrane protein YgdQ => hypothetical protein
+[02:19:22] Modify product: UPF0053 protein Rv1842c => hypothetical protein
+[02:19:22] Modify product: UPF0053 protein Rv1842c => hypothetical protein
+[02:19:22] Modify product: Probable siderophore transport system permease protein YfiZ => putative siderophore transport system permease protein YfiZ
+[02:19:22] Modify product: Probable siderophore transport system permease protein YfhA => putative siderophore transport system permease protein YfhA
+[02:19:22] Modify product: Probable siderophore transport system ATP-binding protein YusV => putative siderophore transport system ATP-binding protein YusV
+[02:19:22] Cleaned 9 /product names
+[02:19:22] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/genome.sprot.tmp.1.faa
+[02:19:22] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/genome.sprot.tmp.1.blast
+[02:19:22] There are still 91 unannotated CDS left (started with 143)
+[02:19:22] Will use hmmer3 to search against /prokka-1.15.6/db/hmm/HAMAP.hmm with 8 CPUs
+[02:19:22] Running: cat \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.HAMAP\.hmm\.tmp\.1\.faa | parallel --gnu --plain -j 8 --block 1950 --recstart '>' --pipe hmmscan --noali --notextw --acc -E 1e-09 --cpu 1 /prokka-1.15.6/db/hmm/HAMAP.hmm /dev/stdin > \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.HAMAP\.hmm\.tmp\.1\.hmmer3 2> /dev/null
+[02:19:24] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/genome.HAMAP.hmm.tmp.1.faa
+[02:19:24] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/genome.HAMAP.hmm.tmp.1.hmmer3
+[02:19:24] Labelling remaining 76 proteins as 'hypothetical protein'
+[02:19:24] Possible /pseudo 'Sensor histidine kinase RcsC' at contig00002 position 34317
+[02:19:24] Possible /pseudo 'IS630 family transposase ISDra3' at contig00003 position 12461
+[02:19:24] Found 49 unique /gene codes.
+[02:19:24] Fixed 2 duplicate /gene - noc_1 noc_2
+[02:19:24] Fixed 2 duplicate /gene - rcsC_1 rcsC_2
+[02:19:24] Fixed 2 duplicate /gene - sasA_1 sasA_2
+[02:19:24] Fixed 3 colliding /gene names.
+[02:19:24] Adding /locus_tag identifiers
+[02:19:24] Assigned 143 locus_tags to CDS and RNA features.
+[02:19:24] Writing outputs to /workspace/jobs/job_1767579512/output/prokka/
+[02:19:24] Generating annotation statistics file
+[02:19:24] Generating Genbank and Sequin files
+[02:19:24] Running: tbl2asn -V b -a r10k -l paired-ends -M n -N 1 -y 'Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka' -Z \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.err -i \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.fsa 2> /dev/null
+[02:19:24] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/errorsummary.val
+[02:19:24] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/genome.dr
+[02:19:24] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/genome.fixedproducts
+[02:19:24] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/genome.ecn
+[02:19:24] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/genome.val
+[02:19:24] Repairing broken .GBK output that tbl2asn produces...
+[02:19:24] Running: sed 's/COORDINATES: profile/COORDINATES:profile/' < \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.gbf > \/workspace\/jobs\/job_1767579512\/output\/prokka\/genome\.gbk
+[02:19:24] Deleting unwanted file: /workspace/jobs/job_1767579512/output/prokka/genome.gbf
+[02:19:24] Output files:
+[02:19:24] /workspace/jobs/job_1767579512/output/prokka/genome.ffn
+[02:19:24] /workspace/jobs/job_1767579512/output/prokka/genome.tbl
+[02:19:24] /workspace/jobs/job_1767579512/output/prokka/genome.err
+[02:19:24] /workspace/jobs/job_1767579512/output/prokka/genome.sqn
+[02:19:24] /workspace/jobs/job_1767579512/output/prokka/genome.fsa
+[02:19:24] /workspace/jobs/job_1767579512/output/prokka/genome.gbk
+[02:19:24] /workspace/jobs/job_1767579512/output/prokka/genome.faa
+[02:19:24] /workspace/jobs/job_1767579512/output/prokka/genome.log
+[02:19:24] /workspace/jobs/job_1767579512/output/prokka/genome.gff
+[02:19:24] /workspace/jobs/job_1767579512/output/prokka/genome.fna
+[02:19:24] /workspace/jobs/job_1767579512/output/prokka/genome.txt
+[02:19:24] /workspace/jobs/job_1767579512/output/prokka/genome.tsv
+[02:19:24] Annotation finished successfully.
+[02:19:24] Walltime used: 0.15 minutes
+[02:19:24] If you use this result please cite the Prokka paper:
+[02:19:24] Seemann T (2014) Prokka: rapid prokaryotic genome annotation. Bioinformatics. 30(14):2068-9.
+[02:19:24] Type 'prokka --citation' for more details.
+[02:19:24] Share and enjoy!

@@ -1,0 +1,1164 @@
+Discrepancy Report Results
+
+Summary
+FATAL: MISSING_PROTEIN_ID:143 proteins have invalid IDs.
+DISC_SOURCE_QUALS_ASNDISC:strain (all present, all same)
+DISC_SOURCE_QUALS_ASNDISC:taxname (all present, all same)
+DISC_FEATURE_COUNT:CDS: 143 present
+DISC_COUNT_NUCLEOTIDES:40 nucleotide Bioseqs are present
+FEATURE_LOCATION_CONFLICT:143 features have inconsistent gene locations.
+OVERLAPPING_CDS:2 coding regions overlap another coding region with a similar or identical name.
+SHORT_CONTIG:15 contigs are shorter than 200 nt.
+NO_ANNOTATION:27 bioseqs have no features
+DISC_QUALITY_SCORES:Quality scores are missing on all sequences.
+ONCALLER_COMMENT_PRESENT:40 comment descriptors were found (all same)
+SHORT_PROT_SEQUENCES:5 protein sequences are shorter than 50 aa.
+MISSING_GENOMEASSEMBLY_COMMENTS:40 bioseqs are missing GenomeAssembly structured comments
+SHORT_SEQUENCES_200:15 sequences are shorter than 200 bp.
+MOLTYPE_NOT_MRNA:40 molecule types are not set as mRNA.
+TECHNIQUE_NOT_TSA:40 technique are not set as TSA
+MISSING_STRUCTURED_COMMENT:40 sequences do not include structured comments.
+MISSING_PROJECT:183 sequences do not include project.
+DISC_INCONSISTENT_MOLINFO_TECH:Molinfo Technique Report (some missing, all same)
+
+
+Detailed Report
+
+FATAL: DiscRep_ALL:MISSING_PROTEIN_ID::143 proteins have invalid IDs.
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_1 (length 90)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_2 (length 289)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_3 (length 210)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_4 (length 285)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_5 (length 413)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_6 (length 262)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_7 (length 112)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_8 (length 130)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_9 (length 342)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_10 (length 364)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_11 (length 241)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_12 (length 219)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_13 (length 451)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_14 (length 516)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_15 (length 365)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_16 (length 217)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_17 (length 568)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_18 (length 44)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_19 (length 42)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_20 (length 675)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_21 (length 503)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_22 (length 209)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_23 (length 255)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_24 (length 395)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_25 (length 238)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_26 (length 65)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_27 (length 252)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_28 (length 272)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_29 (length 114)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_30 (length 729)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_31 (length 315)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_32 (length 598)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_33 (length 113)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_34 (length 83)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_35 (length 287)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_36 (length 744)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_37 (length 385)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_38 (length 1067)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_39 (length 54)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_40 (length 467)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_41 (length 1128)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_42 (length 108)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_43 (length 729)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_44 (length 243)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_45 (length 140)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_46 (length 158)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_47 (length 410)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_1 (length 66)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_2 (length 176)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_3 (length 332)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_4 (length 198)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_5 (length 133)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_6 (length 666)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_7 (length 402)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_8 (length 215)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_9 (length 152)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_10 (length 588)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_11 (length 516)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_12 (length 71)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_13 (length 418)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_14 (length 578)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_15 (length 936)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_16 (length 145)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_17 (length 789)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_18 (length 101)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_19 (length 691)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_20 (length 111)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_21 (length 139)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_22 (length 318)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_23 (length 219)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_24 (length 833)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_25 (length 83)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_26 (length 88)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_27 (length 321)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_28 (length 303)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_29 (length 416)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_30 (length 577)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_31 (length 351)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_32 (length 137)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_33 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_34 (length 290)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_35 (length 369)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_36 (length 230)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_1 (length 129)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_2 (length 1706)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_3 (length 941)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_4 (length 609)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_5 (length 530)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_6 (length 161)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_7 (length 172)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_8 (length 161)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_9 (length 88)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_10 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_11 (length 969)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_12 (length 442)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_13 (length 366)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_1 (length 259)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_2 (length 433)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_3 (length 437)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_4 (length 156)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_5 (length 324)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_6 (length 307)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_7 (length 324)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_8 (length 343)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_9 (length 269)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_10 (length 106)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_11 (length 202)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_12 (length 422)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_13 (length 317)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_1 (length 85)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_2 (length 287)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_3 (length 203)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_4 (length 441)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_5 (length 298)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_6 (length 335)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_7 (length 479)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_8 (length 126)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_9 (length 291)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_10 (length 332)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_11 (length 261)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_12 (length 246)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_1 (length 199)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_2 (length 786)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_3 (length 87)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_4 (length 331)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_5 (length 695)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_6 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_7 (length 31)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_8 (length 160)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_9 (length 317)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007_1 (length 363)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007_2 (length 497)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007_3 (length 291)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007_4 (length 258)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00008_1 (length 34)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00008_2 (length 516)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009_1 (length 48)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009_2 (length 114)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009_3 (length 233)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00010_1 (length 237)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00011_1 (length 160)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00012_1 (length 229)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00016_1 (length 58)
+
+DiscRep_ALL:DISC_SOURCE_QUALS_ASNDISC::strain (all present, all same)
+DiscRep_SUB:DISC_SOURCE_QUALS_ASNDISC::40 sources have 'strain' for strain
+DiscRep_ALL:DISC_SOURCE_QUALS_ASNDISC::taxname (all present, all same)
+DiscRep_SUB:DISC_SOURCE_QUALS_ASNDISC::40 sources have 'Genus species' for taxname
+DiscRep_ALL:DISC_FEATURE_COUNT::CDS: 143 present
+DiscRep_ALL:DISC_COUNT_NUCLEOTIDES::40 nucleotide Bioseqs are present
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001 (length 54694)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002 (length 41341)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003 (length 20802)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004 (length 14520)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005 (length 12335)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006 (length 9644)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007 (length 6379)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00008 (length 2038)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009 (length 1525)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00010 (length 1448)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00011 (length 786)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00012 (length 736)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00013 (length 608)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00014 (length 604)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00015 (length 522)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00016 (length 331)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00017 (length 314)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00018 (length 310)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00019 (length 263)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00020 (length 250)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00021 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00022 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00023 (length 216)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00024 (length 201)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00025 (length 200)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00026 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00027 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00028 (length 168)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00029 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00030 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00031 (length 145)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00032 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00033 (length 140)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00034 (length 139)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00035 (length 134)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00036 (length 133)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00037 (length 130)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00038 (length 121)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00039 (length 118)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00040 (length 114)
+
+DiscRep_ALL:FEATURE_LOCATION_CONFLICT::143 features have inconsistent gene locations.
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Copper methylamine oxidase	contig00001:346-618	KIPFMAPK_00001
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Histamine oxidase	contig00001:644-1513	KIPFMAPK_00002
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:1706-2338	KIPFMAPK_00003
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:2335-3192	KIPFMAPK_00004
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:3168-4409	KIPFMAPK_00005
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Haloalkane dehalogenase	contig00001:c5281-4493	KIPFMAPK_00006
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:5451-5789	KIPFMAPK_00007
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:c6221-5829	KIPFMAPK_00008
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:c7572-6544	KIPFMAPK_00009
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:7813-8907	KIPFMAPK_00010
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	DNA protection during starvation protein 2	contig00001:c9815-9090	KIPFMAPK_00011
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Response regulator ArlR	contig00001:10015-10674	KIPFMAPK_00012
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Adaptive-response sensory-kinase SasA	contig00001:10671-12026	KIPFMAPK_00013
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:c13730-12180	KIPFMAPK_00014
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Sensor protein KdpD	contig00001:c15039-13942	KIPFMAPK_00015
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Potassium-transporting ATPase KdpC subunit	contig00001:c15698-15045	KIPFMAPK_00016
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Potassium-transporting ATPase potassium-binding subunit	contig00001:c17535-15829	KIPFMAPK_00017
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:c17749-17615	KIPFMAPK_00018
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:c17945-17817	KIPFMAPK_00019
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Potassium-transporting ATPase ATP-binding subunit	contig00001:c20169-18142	KIPFMAPK_00020
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Adaptive-response sensory-kinase SasA	contig00001:20346-21857	KIPFMAPK_00021
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Transcriptional regulatory protein DegU	contig00001:21850-22479	KIPFMAPK_00022
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	3-alpha-hydroxysteroid dehydrogenase/carbonyl reductase	contig00001:c23281-22514	KIPFMAPK_00023
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	N-succinylamino acid racemase	contig00001:23502-24689	KIPFMAPK_00024
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Membrane-bound lytic murein transglycosylase F	contig00001:24708-25424	KIPFMAPK_00025
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:25388-25585	KIPFMAPK_00026
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:25582-26340	KIPFMAPK_00027
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Glycerol-3-phosphate regulon repressor	contig00001:c27227-26409	KIPFMAPK_00028
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:27487-27831	KIPFMAPK_00029
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:27777-29966	KIPFMAPK_00030
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	1-phosphofructokinase	contig00001:29968-30915	KIPFMAPK_00031
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	PTS system fructose-specific EIIB'BC component	contig00001:31054-32850	KIPFMAPK_00032
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	6-hydroxynicotinate 3-monooxygenase	contig00001:32898-33239	KIPFMAPK_00033
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:33330-33581	KIPFMAPK_00034
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:33578-34441	KIPFMAPK_00035
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	putative subtilase-type serine protease	contig00001:c36711-34477	KIPFMAPK_00036
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:c37886-36729	KIPFMAPK_00037
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:c43305-40102	KIPFMAPK_00038
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:c43459-43295	KIPFMAPK_00039
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:43479-44882	KIPFMAPK_00040
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:44993-48379	KIPFMAPK_00041
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:48728-49054	KIPFMAPK_00042
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:c51248-49059	KIPFMAPK_00043
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:c51957-51226	KIPFMAPK_00044
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:c52421-51999	KIPFMAPK_00045
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00001:c53006-52530	KIPFMAPK_00046
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	IS4 family transposase ISDra7	contig00001:c54377-53145	KIPFMAPK_00047
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:61-261	KIPFMAPK_00048
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c1238-708	KIPFMAPK_00049
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	PEP-dependent dihydroxyacetone kinase, dihydroxyacetone-binding subunit DhaK	contig00002:1698-2696	KIPFMAPK_00050
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	PTS-dependent dihydroxyacetone kinase, ADP-binding subunit DhaL	contig00002:2693-3289	KIPFMAPK_00051
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	PEP-dependent dihydroxyacetone kinase, phosphoryl donor subunit DhaM	contig00002:3286-3687	KIPFMAPK_00052
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c5978-3978	KIPFMAPK_00053
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c7540-6332	KIPFMAPK_00054
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	putative ABC transporter ATP-binding protein	contig00002:c8184-7537	KIPFMAPK_00055
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c8639-8181	KIPFMAPK_00056
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Alkaline phosphatase 3	contig00002:c10825-9059	KIPFMAPK_00057
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c12779-11229	KIPFMAPK_00058
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:12950-13165	KIPFMAPK_00059
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Na(+), Li(+), K(+)/H(+) antiporter	contig00002:c14494-13238	KIPFMAPK_00060
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	HTH-type transcriptional regulator SgrR	contig00002:14549-16285	KIPFMAPK_00061
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c19124-16314	KIPFMAPK_00062
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c19572-19135	KIPFMAPK_00063
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c21942-19573	KIPFMAPK_00064
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c22295-21990	KIPFMAPK_00065
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c24523-22448	KIPFMAPK_00066
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	3-phenylpropionate-dihydrodiol/cinnamic acid-dihydrodiol dehydrogenase	contig00002:24842-25177	KIPFMAPK_00067
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	12alpha-hydroxysteroid dehydrogenase	contig00002:25220-25639	KIPFMAPK_00068
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:25936-26892	KIPFMAPK_00069
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:27052-27711	KIPFMAPK_00070
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Acetyl esterase	contig00002:c30234-27733	KIPFMAPK_00071
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:30441-30692	KIPFMAPK_00072
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:30851-31117	KIPFMAPK_00073
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:31078-32043	KIPFMAPK_00074
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Nucleoid occlusion protein	contig00002:32040-32951	KIPFMAPK_00075
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Sensor histidine kinase RcsC	contig00002:c34339-33089	KIPFMAPK_00076
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Sensor histidine kinase RcsC	contig00002:c36050-34317	KIPFMAPK_00077
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c37102-36047	KIPFMAPK_00078
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Serine/threonine-protein kinase RsbT	contig00002:c37609-37196	KIPFMAPK_00079
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c38015-37590	KIPFMAPK_00080
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c38893-38021	KIPFMAPK_00081
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:c40118-39009	KIPFMAPK_00082
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00002:40149-40841	KIPFMAPK_00083
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00003:123-512	KIPFMAPK_00084
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	DEAD-box ATP-dependent RNA helicase CshA	contig00003:509-5629	KIPFMAPK_00085
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	RNA polymerase-associated protein RapA	contig00003:5632-8457	KIPFMAPK_00086
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00003:8454-10283	KIPFMAPK_00087
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00003:10413-12005	KIPFMAPK_00088
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	IS630 family transposase ISDra3	contig00003:11968-12453	KIPFMAPK_00089
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	IS630 family transposase ISDra3	contig00003:12461-12979	KIPFMAPK_00090
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00003:12998-13483	KIPFMAPK_00091
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00003:c14113-13847	KIPFMAPK_00092
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00003:14386-14901	KIPFMAPK_00093
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00003:14898-17807	KIPFMAPK_00094
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00003:17807-19135	KIPFMAPK_00095
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00003:c20680-19580	KIPFMAPK_00096
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00004:597-1376	KIPFMAPK_00097
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00004:1820-3121	KIPFMAPK_00098
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00004:3118-4431	KIPFMAPK_00099
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00004:5012-5482	KIPFMAPK_00100
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Ferric aerobactin-binding protein VatD	contig00004:5825-6799	KIPFMAPK_00101
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00004:6796-7719	KIPFMAPK_00102
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	putative siderophore transport system permease protein YfiZ	contig00004:7716-8690	KIPFMAPK_00103
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	putative siderophore transport system permease protein YfhA	contig00004:8687-9718	KIPFMAPK_00104
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	putative siderophore transport system ATP-binding protein YusV	contig00004:9715-10524	KIPFMAPK_00105
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00004:c11071-10751	KIPFMAPK_00106
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00004:11202-11810	KIPFMAPK_00107
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Na(+)/H(+) antiporter NhaP	contig00004:11820-13088	KIPFMAPK_00108
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00004:13372-14325	KIPFMAPK_00109
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00005:4-261	KIPFMAPK_00110
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Vitamin B12-binding protein	contig00005:715-1578	KIPFMAPK_00111
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Corrinoid adenosyltransferase CobA	contig00005:1587-2198	KIPFMAPK_00112
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Cobyrinate a,c-diamide synthase	contig00005:2188-3513	KIPFMAPK_00113
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Cobalamin biosynthesis protein CobD	contig00005:3510-4406	KIPFMAPK_00114
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Histidinol-phosphate aminotransferase	contig00005:4399-5406	KIPFMAPK_00115
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Cobyric acid synthase	contig00005:5399-6838	KIPFMAPK_00116
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00005:c7507-7127	KIPFMAPK_00117
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Hemin-binding periplasmic protein HmuT	contig00005:8130-9005	KIPFMAPK_00118
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Hemin transport system permease protein HmuU	contig00005:9068-10066	KIPFMAPK_00119
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Hemin import ATP-binding protein HmuV	contig00005:10063-10848	KIPFMAPK_00120
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	NADPH-dependent ferric-chelate reductase	contig00005:10856-11596	KIPFMAPK_00121
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00006:c965-366	KIPFMAPK_00122
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00006:c3506-1146	KIPFMAPK_00123
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00006:c3777-3514	KIPFMAPK_00124
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Ribonucleoside-diphosphate reductase subunit beta	contig00006:c4765-3770	KIPFMAPK_00125
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Ribonucleoside-diphosphate reductase subunit alpha	contig00006:c6909-4822	KIPFMAPK_00126
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Protein NrdI	contig00006:c7319-6894	KIPFMAPK_00127
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00006:c7417-7322	KIPFMAPK_00128
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00006:c7958-7476	KIPFMAPK_00129
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Tyrosine recombinase XerC	contig00006:c9345-8392	KIPFMAPK_00130
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00007:784-1875	KIPFMAPK_00131
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00007:1868-3361	KIPFMAPK_00132
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Nucleoid occlusion protein	contig00007:c5090-4215	KIPFMAPK_00133
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Sporulation initiation inhibitor protein Soj	contig00007:c5863-5087	KIPFMAPK_00134
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00008:38-142	KIPFMAPK_00135
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00008:248-1798	KIPFMAPK_00136
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00009:7-153	KIPFMAPK_00137
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00009:399-743	KIPFMAPK_00138
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	IS3 family transposase ISHahy5	contig00009:704-1405	KIPFMAPK_00139
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00010:284-997	KIPFMAPK_00140
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	IS630 family transposase ISDra3	contig00011:c706-224	KIPFMAPK_00141
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	IS4 family transposase ISDra7	contig00012:21-710	KIPFMAPK_00142
+
+DiscRep_SUB:FEATURE_LOCATION_CONFLICT::Coding region xref gene does not exist
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	hypothetical protein	contig00016:122-298	KIPFMAPK_00143
+
+DiscRep_ALL:OVERLAPPING_CDS::2 coding regions overlap another coding region with a similar or identical name.
+DiscRep_SUB:OVERLAPPING_CDS::2 coding regions overlap another coding region with a similar or identical name that do not have the appropriate note text
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Sensor histidine kinase RcsC	contig00002:c34339-33089	KIPFMAPK_00076
+/workspace/jobs/job_1767579512/output/prokka/genome:CDS	Sensor histidine kinase RcsC	contig00002:c36050-34317	KIPFMAPK_00077
+
+DiscRep_ALL:SHORT_CONTIG::15 contigs are shorter than 200 nt.
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00026 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00027 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00028 (length 168)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00029 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00030 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00031 (length 145)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00032 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00033 (length 140)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00034 (length 139)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00035 (length 134)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00036 (length 133)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00037 (length 130)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00038 (length 121)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00039 (length 118)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00040 (length 114)
+
+DiscRep_ALL:NO_ANNOTATION::27 bioseqs have no features
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00013 (length 608)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00014 (length 604)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00015 (length 522)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00017 (length 314)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00018 (length 310)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00019 (length 263)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00020 (length 250)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00021 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00022 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00023 (length 216)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00024 (length 201)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00025 (length 200)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00026 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00027 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00028 (length 168)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00029 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00030 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00031 (length 145)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00032 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00033 (length 140)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00034 (length 139)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00035 (length 134)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00036 (length 133)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00037 (length 130)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00038 (length 121)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00039 (length 118)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00040 (length 114)
+
+DiscRep_ALL:DISC_QUALITY_SCORES::Quality scores are missing on all sequences.
+
+DiscRep_ALL:ONCALLER_COMMENT_PRESENT::40 comment descriptors were found (all same)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00008:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00010:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00011:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00012:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00013:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00014:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00015:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00016:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00017:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00018:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00019:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00020:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00021:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00022:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00023:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00024:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00025:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00026:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00027:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00028:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00029:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00030:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00031:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00032:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00033:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00034:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00035:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00036:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00037:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00038:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00039:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00040:Annotated using prokka 1.15.6 from https://github.com/tseemann/prokka
+
+DiscRep_ALL:SHORT_PROT_SEQUENCES::5 protein sequences are shorter than 50 aa.
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_18 (length 44)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_19 (length 42)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_7 (length 31)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00008_1 (length 34)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009_1 (length 48)
+
+DiscRep_ALL:MISSING_GENOMEASSEMBLY_COMMENTS::40 bioseqs are missing GenomeAssembly structured comments
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001 (length 54694)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002 (length 41341)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003 (length 20802)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004 (length 14520)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005 (length 12335)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006 (length 9644)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007 (length 6379)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00008 (length 2038)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009 (length 1525)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00010 (length 1448)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00011 (length 786)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00012 (length 736)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00013 (length 608)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00014 (length 604)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00015 (length 522)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00016 (length 331)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00017 (length 314)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00018 (length 310)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00019 (length 263)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00020 (length 250)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00021 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00022 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00023 (length 216)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00024 (length 201)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00025 (length 200)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00026 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00027 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00028 (length 168)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00029 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00030 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00031 (length 145)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00032 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00033 (length 140)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00034 (length 139)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00035 (length 134)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00036 (length 133)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00037 (length 130)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00038 (length 121)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00039 (length 118)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00040 (length 114)
+
+DiscRep_ALL:SHORT_SEQUENCES_200::15 sequences are shorter than 200 bp.
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00026 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00027 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00028 (length 168)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00029 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00030 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00031 (length 145)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00032 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00033 (length 140)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00034 (length 139)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00035 (length 134)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00036 (length 133)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00037 (length 130)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00038 (length 121)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00039 (length 118)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00040 (length 114)
+
+DiscRep_ALL:MOLTYPE_NOT_MRNA::40 molecule types are not set as mRNA.
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001 (length 54694)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002 (length 41341)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003 (length 20802)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004 (length 14520)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005 (length 12335)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006 (length 9644)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007 (length 6379)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00008 (length 2038)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009 (length 1525)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00010 (length 1448)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00011 (length 786)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00012 (length 736)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00013 (length 608)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00014 (length 604)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00015 (length 522)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00016 (length 331)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00017 (length 314)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00018 (length 310)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00019 (length 263)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00020 (length 250)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00021 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00022 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00023 (length 216)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00024 (length 201)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00025 (length 200)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00026 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00027 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00028 (length 168)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00029 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00030 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00031 (length 145)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00032 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00033 (length 140)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00034 (length 139)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00035 (length 134)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00036 (length 133)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00037 (length 130)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00038 (length 121)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00039 (length 118)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00040 (length 114)
+
+DiscRep_ALL:TECHNIQUE_NOT_TSA::40 technique are not set as TSA
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001 (length 54694)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002 (length 41341)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003 (length 20802)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004 (length 14520)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005 (length 12335)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006 (length 9644)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007 (length 6379)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00008 (length 2038)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009 (length 1525)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00010 (length 1448)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00011 (length 786)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00012 (length 736)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00013 (length 608)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00014 (length 604)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00015 (length 522)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00016 (length 331)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00017 (length 314)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00018 (length 310)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00019 (length 263)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00020 (length 250)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00021 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00022 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00023 (length 216)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00024 (length 201)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00025 (length 200)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00026 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00027 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00028 (length 168)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00029 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00030 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00031 (length 145)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00032 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00033 (length 140)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00034 (length 139)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00035 (length 134)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00036 (length 133)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00037 (length 130)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00038 (length 121)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00039 (length 118)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00040 (length 114)
+
+DiscRep_ALL:MISSING_STRUCTURED_COMMENT::40 sequences do not include structured comments.
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001 (length 54694)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002 (length 41341)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003 (length 20802)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004 (length 14520)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005 (length 12335)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006 (length 9644)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007 (length 6379)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00008 (length 2038)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009 (length 1525)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00010 (length 1448)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00011 (length 786)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00012 (length 736)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00013 (length 608)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00014 (length 604)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00015 (length 522)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00016 (length 331)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00017 (length 314)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00018 (length 310)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00019 (length 263)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00020 (length 250)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00021 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00022 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00023 (length 216)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00024 (length 201)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00025 (length 200)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00026 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00027 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00028 (length 168)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00029 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00030 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00031 (length 145)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00032 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00033 (length 140)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00034 (length 139)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00035 (length 134)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00036 (length 133)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00037 (length 130)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00038 (length 121)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00039 (length 118)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00040 (length 114)
+
+DiscRep_ALL:MISSING_PROJECT::183 sequences do not include project.
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001 (length 54694)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_1 (length 90)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_2 (length 289)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_3 (length 210)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_4 (length 285)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_5 (length 413)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_6 (length 262)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_7 (length 112)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_8 (length 130)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_9 (length 342)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_10 (length 364)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_11 (length 241)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_12 (length 219)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_13 (length 451)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_14 (length 516)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_15 (length 365)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_16 (length 217)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_17 (length 568)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_18 (length 44)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_19 (length 42)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_20 (length 675)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_21 (length 503)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_22 (length 209)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_23 (length 255)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_24 (length 395)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_25 (length 238)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_26 (length 65)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_27 (length 252)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_28 (length 272)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_29 (length 114)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_30 (length 729)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_31 (length 315)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_32 (length 598)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_33 (length 113)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_34 (length 83)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_35 (length 287)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_36 (length 744)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_37 (length 385)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_38 (length 1067)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_39 (length 54)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_40 (length 467)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_41 (length 1128)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_42 (length 108)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_43 (length 729)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_44 (length 243)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_45 (length 140)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_46 (length 158)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001_47 (length 410)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002 (length 41341)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_1 (length 66)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_2 (length 176)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_3 (length 332)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_4 (length 198)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_5 (length 133)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_6 (length 666)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_7 (length 402)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_8 (length 215)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_9 (length 152)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_10 (length 588)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_11 (length 516)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_12 (length 71)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_13 (length 418)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_14 (length 578)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_15 (length 936)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_16 (length 145)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_17 (length 789)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_18 (length 101)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_19 (length 691)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_20 (length 111)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_21 (length 139)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_22 (length 318)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_23 (length 219)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_24 (length 833)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_25 (length 83)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_26 (length 88)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_27 (length 321)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_28 (length 303)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_29 (length 416)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_30 (length 577)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_31 (length 351)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_32 (length 137)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_33 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_34 (length 290)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_35 (length 369)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002_36 (length 230)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003 (length 20802)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_1 (length 129)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_2 (length 1706)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_3 (length 941)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_4 (length 609)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_5 (length 530)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_6 (length 161)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_7 (length 172)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_8 (length 161)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_9 (length 88)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_10 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_11 (length 969)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_12 (length 442)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003_13 (length 366)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004 (length 14520)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_1 (length 259)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_2 (length 433)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_3 (length 437)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_4 (length 156)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_5 (length 324)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_6 (length 307)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_7 (length 324)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_8 (length 343)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_9 (length 269)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_10 (length 106)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_11 (length 202)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_12 (length 422)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004_13 (length 317)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005 (length 12335)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_1 (length 85)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_2 (length 287)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_3 (length 203)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_4 (length 441)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_5 (length 298)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_6 (length 335)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_7 (length 479)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_8 (length 126)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_9 (length 291)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_10 (length 332)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_11 (length 261)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005_12 (length 246)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006 (length 9644)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_1 (length 199)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_2 (length 786)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_3 (length 87)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_4 (length 331)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_5 (length 695)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_6 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_7 (length 31)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_8 (length 160)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006_9 (length 317)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007 (length 6379)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007_1 (length 363)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007_2 (length 497)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007_3 (length 291)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007_4 (length 258)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00008 (length 2038)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00008_1 (length 34)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00008_2 (length 516)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009 (length 1525)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009_1 (length 48)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009_2 (length 114)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009_3 (length 233)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00010 (length 1448)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00010_1 (length 237)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00011 (length 786)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00011_1 (length 160)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00012 (length 736)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00012_1 (length 229)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00013 (length 608)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00014 (length 604)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00015 (length 522)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00016 (length 331)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00016_1 (length 58)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00017 (length 314)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00018 (length 310)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00019 (length 263)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00020 (length 250)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00021 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00022 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00023 (length 216)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00024 (length 201)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00025 (length 200)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00026 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00027 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00028 (length 168)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00029 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00030 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00031 (length 145)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00032 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00033 (length 140)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00034 (length 139)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00035 (length 134)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00036 (length 133)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00037 (length 130)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00038 (length 121)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00039 (length 118)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00040 (length 114)
+
+DiscRep_ALL:DISC_INCONSISTENT_MOLINFO_TECH::Molinfo Technique Report (some missing, all same)
+DiscRep_SUB:DISC_INCONSISTENT_MOLINFO_TECH::technique (all missing)
+DiscRep_SUB:DISC_INCONSISTENT_MOLINFO_TECH::40 Molinfos are missing field technique
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00001 (length 54694)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00002 (length 41341)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00003 (length 20802)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00004 (length 14520)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00005 (length 12335)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00006 (length 9644)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00007 (length 6379)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00008 (length 2038)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00009 (length 1525)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00010 (length 1448)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00011 (length 786)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00012 (length 736)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00013 (length 608)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00014 (length 604)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00015 (length 522)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00016 (length 331)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00017 (length 314)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00018 (length 310)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00019 (length 263)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00020 (length 250)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00021 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00022 (length 223)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00023 (length 216)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00024 (length 201)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00025 (length 200)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00026 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00027 (length 171)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00028 (length 168)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00029 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00030 (length 166)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00031 (length 145)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00032 (length 141)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00033 (length 140)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00034 (length 139)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00035 (length 134)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00036 (length 133)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00037 (length 130)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00038 (length 121)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00039 (length 118)
+/workspace/jobs/job_1767579512/output/prokka/genome:contig00040 (length 114)
+
