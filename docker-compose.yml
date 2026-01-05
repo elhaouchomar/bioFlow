@@ -8,6 +8,19 @@ services:
     volumes:
       - redis_data:/data
 
+  api:
+    build: .
+    container_name: bioflow_api
+    ports:
+      - "8080:8080" 
+    volumes:
+      - ./workspace:/app/workspace
+    working_dir: /app
+    environment:
+      - REDIS_ADDR=redis:6379
+      - HOST_WORKSPACE=${PWD}/workspace
+    command: ["./pipeline", "-mode", "server"] 
+
   worker:
     build: .
     container_name: bioflow_worker
@@ -20,7 +33,7 @@ services:
       - HOST_WORKSPACE=${PWD}/workspace
     depends_on:
       - redis
-    privileged: true
+      - api
     command: ["./pipeline", "-mode", "worker"]
 
 volumes:
