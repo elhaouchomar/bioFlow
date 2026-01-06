@@ -1,0 +1,12 @@
+{
+  "job_id": "job_1767666367",
+  "status": "completed",
+  "input_type": "reads",
+  "timestamp": "Tue, 06 Jan 2026 02:26:55 UTC",
+  "assembly": {
+    "total_length": "40",
+    "n50": "54694",
+    "gc": "63.44",
+    "contigs": "40"
+  }
+}

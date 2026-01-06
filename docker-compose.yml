@@ -15,7 +15,6 @@ services:
       - "8080:8080" 
     volumes:
       - ./workspace:/app/workspace
-      - /var/run/docker.sock:/var/run/docker.sock 
     working_dir: /app
     environment:
       - REDIS_ADDR=redis:6379

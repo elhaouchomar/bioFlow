@@ -2,16 +2,17 @@ FROM golang:1.22-alpine
 
 WORKDIR /app
 
-# تثبيت Docker CLI لاستدعاء الحاويات الأخرى
+# Install Docker CLI to run bio-tools
 RUN apk add --no-cache docker-cli
 
-COPY go.mod go.sum ./
+COPY go.mod ./
 RUN go mod download
 
 COPY . .
 
+# IMPORTANT: Copy the templates folder
 COPY templates ./templates
 
-RUN go build -o pipeline main.go
+RUN go build -o pipeline
 
 CMD ["./pipeline"]

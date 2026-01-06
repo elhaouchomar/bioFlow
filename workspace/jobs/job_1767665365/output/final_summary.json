@@ -1,0 +1,12 @@
+{
+  "job_id": "job_1767665365",
+  "status": "completed",
+  "input_type": "genome",
+  "timestamp": "Tue, 06 Jan 2026 02:09:33 UTC",
+  "assembly": {
+    "total_length": "1",
+    "n50": "48502",
+    "gc": "49.86",
+    "contigs": "1"
+  }
+}

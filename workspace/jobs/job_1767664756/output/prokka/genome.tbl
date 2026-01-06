@@ -1,0 +1,802 @@
+>Feature contig00001
+346	618	CDS
+			EC_number	1.4.3.21
+			gene	maoII
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q07123
+			locus_tag	ADMCFKJO_00001
+			product	Copper methylamine oxidase
+644	1513	CDS
+			EC_number	1.4.3.22
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q59118
+			locus_tag	ADMCFKJO_00002
+			product	Histamine oxidase
+1706	2338	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00003
+			product	hypothetical protein
+2335	3192	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00004
+			product	hypothetical protein
+3168	4409	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00005
+			product	hypothetical protein
+5281	4493	CDS
+			EC_number	3.8.1.5
+			gene	dhaA
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_01231
+			locus_tag	ADMCFKJO_00006
+			product	Haloalkane dehalogenase
+5451	5789	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00007
+			product	hypothetical protein
+6221	5829	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00008
+			product	hypothetical protein
+7572	6544	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00009
+			product	hypothetical protein
+7813	8907	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00010
+			product	hypothetical protein
+9815	9090	CDS
+			EC_number	1.16.-.-
+			gene	dps2
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q9RZN1
+			locus_tag	ADMCFKJO_00011
+			product	DNA protection during starvation protein 2
+10015	10674	CDS
+			db_xref	COG:COG0745
+			gene	arlR
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q9KJN4
+			locus_tag	ADMCFKJO_00012
+			product	Response regulator ArlR
+10671	12026	CDS
+			EC_number	2.7.13.3
+			gene	sasA_1
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_01837
+			locus_tag	ADMCFKJO_00013
+			product	Adaptive-response sensory-kinase SasA
+13730	12180	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00014
+			product	hypothetical protein
+15039	13942	CDS
+			EC_number	2.7.13.3
+			db_xref	COG:COG2205
+			gene	kdpD
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P9WGL3
+			locus_tag	ADMCFKJO_00015
+			product	Sensor protein KdpD
+15698	15045	CDS
+			db_xref	COG:COG2156
+			gene	kdpC
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P9WKF1
+			locus_tag	ADMCFKJO_00016
+			product	Potassium-transporting ATPase KdpC subunit
+17535	15829	CDS
+			db_xref	COG:COG2060
+			gene	kdpA
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:O32327
+			locus_tag	ADMCFKJO_00017
+			product	Potassium-transporting ATPase potassium-binding subunit
+17749	17615	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00018
+			product	hypothetical protein
+17945	17817	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00019
+			product	hypothetical protein
+20169	18142	CDS
+			EC_number	7.2.2.6
+			db_xref	COG:COG2216
+			gene	kdpB
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P03960
+			locus_tag	ADMCFKJO_00020
+			product	Potassium-transporting ATPase ATP-binding subunit
+20346	21857	CDS
+			EC_number	2.7.13.3
+			gene	sasA_2
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_01837
+			locus_tag	ADMCFKJO_00021
+			product	Adaptive-response sensory-kinase SasA
+21850	22479	CDS
+			db_xref	COG:COG2197
+			gene	degU
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P13800
+			locus_tag	ADMCFKJO_00022
+			product	Transcriptional regulatory protein DegU
+23281	22514	CDS
+			EC_number	1.1.1.50
+			gene	hsdA
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P80702
+			locus_tag	ADMCFKJO_00023
+			product	3-alpha-hydroxysteroid dehydrogenase/carbonyl reductase
+23502	24689	CDS
+			EC_number	5.1.1.-
+			db_xref	COG:COG4948
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q9RYA6
+			locus_tag	ADMCFKJO_00024
+			product	N-succinylamino acid racemase
+24708	25424	CDS
+			gene	mltF
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_02016
+			locus_tag	ADMCFKJO_00025
+			product	Membrane-bound lytic murein transglycosylase F
+25388	25585	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00026
+			product	hypothetical protein
+25582	26340	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00027
+			product	hypothetical protein
+27227	26409	CDS
+			db_xref	COG:COG1349
+			gene	glpR
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P0ACL0
+			locus_tag	ADMCFKJO_00028
+			product	Glycerol-3-phosphate regulon repressor
+27487	27831	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00029
+			product	hypothetical protein
+27777	29966	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00030
+			product	hypothetical protein
+29968	30915	CDS
+			EC_number	2.7.1.56
+			db_xref	COG:COG1105
+			gene	fruk
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q9KM71
+			locus_tag	ADMCFKJO_00031
+			product	1-phosphofructokinase
+31054	32850	CDS
+			db_xref	COG:COG1299
+			gene	fruA
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P23355
+			locus_tag	ADMCFKJO_00032
+			product	PTS system fructose-specific EIIB'BC component
+32898	33239	CDS
+			EC_number	1.14.13.114
+			gene	nicC
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P86491
+			locus_tag	ADMCFKJO_00033
+			product	6-hydroxynicotinate 3-monooxygenase
+33330	33581	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00034
+			product	hypothetical protein
+33578	34441	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00035
+			product	hypothetical protein
+36711	34477	CDS
+			EC_number	3.4.21.-
+			db_xref	COG:COG1404
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q9RYM8
+			locus_tag	ADMCFKJO_00036
+			product	putative subtilase-type serine protease
+37886	36729	CDS
+			db_xref	COG:COG4932
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q9RYM9
+			locus_tag	ADMCFKJO_00037
+			product	putative protein
+43305	40102	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00038
+			product	hypothetical protein
+43459	43295	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00039
+			product	hypothetical protein
+43479	44882	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00040
+			product	hypothetical protein
+44993	48379	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00041
+			product	hypothetical protein
+48728	49054	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00042
+			product	hypothetical protein
+51248	49059	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00043
+			product	hypothetical protein
+51957	51226	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00044
+			product	hypothetical protein
+52421	51999	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00045
+			product	hypothetical protein
+53006	52530	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00046
+			product	hypothetical protein
+54377	53145	CDS
+			db_xref	COG:COG3385
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:ISfinder:ISDra7
+			locus_tag	ADMCFKJO_00047
+			product	IS4 family transposase ISDra7
+>Feature contig00002
+61	261	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00048
+			product	hypothetical protein
+1238	708	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00049
+			product	hypothetical protein
+1698	2696	CDS
+			EC_number	2.7.1.121
+			db_xref	COG:COG2376
+			gene	dhaK
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P76015
+			locus_tag	ADMCFKJO_00050
+			product	PEP-dependent dihydroxyacetone kinase, dihydroxyacetone-binding subunit DhaK
+2693	3289	CDS
+			EC_number	2.7.1.121
+			db_xref	COG:COG1461
+			gene	dhaL
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q9CIV7
+			locus_tag	ADMCFKJO_00051
+			product	PTS-dependent dihydroxyacetone kinase, ADP-binding subunit DhaL
+3286	3687	CDS
+			EC_number	2.7.1.121
+			db_xref	COG:COG1080
+			gene	dhaM
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P37349
+			locus_tag	ADMCFKJO_00052
+			product	PEP-dependent dihydroxyacetone kinase, phosphoryl donor subunit DhaM
+5978	3978	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00053
+			product	hypothetical protein
+7540	6332	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00054
+			product	hypothetical protein
+8184	7537	CDS
+			db_xref	COG:COG1136
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P9WQK1
+			locus_tag	ADMCFKJO_00055
+			product	putative ABC transporter ATP-binding protein
+8639	8181	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00056
+			product	hypothetical protein
+10825	9059	CDS
+			EC_number	3.1.3.1
+			db_xref	COG:COG1785
+			gene	phoB
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P19405
+			locus_tag	ADMCFKJO_00057
+			product	Alkaline phosphatase 3
+12779	11229	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00058
+			product	hypothetical protein
+12950	13165	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00059
+			product	hypothetical protein
+14494	13238	CDS
+			gene	mdrP
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:A0A1C7E424
+			locus_tag	ADMCFKJO_00060
+			product	Na(+), Li(+), K(+)/H(+) antiporter
+14549	16285	CDS
+			gene	sgrR
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_01449
+			locus_tag	ADMCFKJO_00061
+			product	HTH-type transcriptional regulator SgrR
+19124	16314	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00062
+			product	hypothetical protein
+19572	19135	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00063
+			product	hypothetical protein
+21942	19573	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00064
+			product	hypothetical protein
+22295	21990	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00065
+			product	hypothetical protein
+24523	22448	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00066
+			product	hypothetical protein
+24842	25177	CDS
+			EC_number	1.3.1.87
+			gene	hcaB
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_01647
+			locus_tag	ADMCFKJO_00067
+			product	3-phenylpropionate-dihydrodiol/cinnamic acid-dihydrodiol dehydrogenase
+25220	25639	CDS
+			EC_number	1.1.1.176
+			db_xref	COG:COG1028
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P21215
+			locus_tag	ADMCFKJO_00068
+			product	12alpha-hydroxysteroid dehydrogenase
+25936	26892	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00069
+			product	hypothetical protein
+27052	27711	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00070
+			product	hypothetical protein
+30234	27733	CDS
+			EC_number	3.1.1.-
+			gene	aes
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_01958
+			locus_tag	ADMCFKJO_00071
+			product	Acetyl esterase
+30441	30692	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00072
+			product	hypothetical protein
+30851	31117	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00073
+			product	hypothetical protein
+31078	32043	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00074
+			product	hypothetical protein
+32040	32951	CDS
+			gene	noc_1
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_02015
+			locus_tag	ADMCFKJO_00075
+			product	Nucleoid occlusion protein
+34339	33089	CDS
+			EC_number	2.7.13.3
+			gene	rcsC_1
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_00979
+			locus_tag	ADMCFKJO_00076
+			product	Sensor histidine kinase RcsC
+36050	34317	CDS
+			EC_number	2.7.13.3
+			gene	rcsC_2
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_00979
+			locus_tag	ADMCFKJO_00077
+			product	Sensor histidine kinase RcsC
+37102	36047	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00078
+			product	hypothetical protein
+37609	37196	CDS
+			EC_number	2.7.11.1
+			db_xref	COG:COG2172
+			gene	rsbT
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P42411
+			locus_tag	ADMCFKJO_00079
+			product	Serine/threonine-protein kinase RsbT
+38015	37590	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00080
+			product	hypothetical protein
+38893	38021	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00081
+			product	hypothetical protein
+40118	39009	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00082
+			product	hypothetical protein
+40149	40841	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00083
+			product	hypothetical protein
+>Feature contig00003
+123	512	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00084
+			product	hypothetical protein
+509	5629	CDS
+			EC_number	3.6.4.13
+			gene	cshA
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_01493
+			locus_tag	ADMCFKJO_00085
+			product	DEAD-box ATP-dependent RNA helicase CshA
+5632	8457	CDS
+			EC_number	3.6.4.-
+			gene	rapA
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_01821
+			locus_tag	ADMCFKJO_00086
+			product	RNA polymerase-associated protein RapA
+8454	10283	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00087
+			product	hypothetical protein
+10413	12005	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00088
+			product	hypothetical protein
+11968	12453	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:ISfinder:ISDra3
+			locus_tag	ADMCFKJO_00089
+			product	IS630 family transposase ISDra3
+12461	12979	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:ISfinder:ISDra3
+			locus_tag	ADMCFKJO_00090
+			product	IS630 family transposase ISDra3
+12998	13483	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00091
+			product	hypothetical protein
+14113	13847	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00092
+			product	hypothetical protein
+14386	14901	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00093
+			product	hypothetical protein
+14898	17807	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00094
+			product	hypothetical protein
+17807	19135	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00095
+			product	hypothetical protein
+20680	19580	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00096
+			product	hypothetical protein
+>Feature contig00004
+597	1376	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P67127
+			locus_tag	ADMCFKJO_00097
+			note	UPF0053 inner membrane protein YgdQ
+			product	hypothetical protein
+1820	3121	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P9WFP3
+			locus_tag	ADMCFKJO_00098
+			note	UPF0053 protein Rv1842c
+			product	hypothetical protein
+3118	4431	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P9WFP3
+			locus_tag	ADMCFKJO_00099
+			note	UPF0053 protein Rv1842c
+			product	hypothetical protein
+5012	5482	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00100
+			product	hypothetical protein
+5825	6799	CDS
+			gene	vatD
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q845T3
+			locus_tag	ADMCFKJO_00101
+			product	Ferric aerobactin-binding protein VatD
+6796	7719	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00102
+			product	hypothetical protein
+7716	8690	CDS
+			db_xref	COG:COG0609
+			gene	yfiZ
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:O31568
+			locus_tag	ADMCFKJO_00103
+			product	putative siderophore transport system permease protein YfiZ
+8687	9718	CDS
+			db_xref	COG:COG0609
+			gene	yfhA
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:O31569
+			locus_tag	ADMCFKJO_00104
+			product	putative siderophore transport system permease protein YfhA
+9715	10524	CDS
+			db_xref	COG:COG1120
+			gene	yusV
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:O32188
+			locus_tag	ADMCFKJO_00105
+			product	putative siderophore transport system ATP-binding protein YusV
+11071	10751	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00106
+			product	hypothetical protein
+11202	11810	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00107
+			product	hypothetical protein
+11820	13088	CDS
+			gene	nhaP
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:G3XD29
+			locus_tag	ADMCFKJO_00108
+			product	Na(+)/H(+) antiporter NhaP
+13372	14325	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00109
+			product	hypothetical protein
+>Feature contig00005
+4	261	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00110
+			product	hypothetical protein
+715	1578	CDS
+			db_xref	COG:COG0614
+			gene	btuF
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:A5F5P5
+			locus_tag	ADMCFKJO_00111
+			product	Vitamin B12-binding protein
+1587	2198	CDS
+			EC_number	2.5.1.17
+			gene	btuR
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P31570
+			locus_tag	ADMCFKJO_00112
+			product	Corrinoid adenosyltransferase CobA
+2188	3513	CDS
+			EC_number	6.3.5.11
+			gene	cbiA
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P29946
+			locus_tag	ADMCFKJO_00113
+			product	Cobyrinate a,c-diamide synthase
+3510	4406	CDS
+			db_xref	COG:COG1270
+			gene	cobD
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P9WP93
+			locus_tag	ADMCFKJO_00114
+			product	Cobalamin biosynthesis protein CobD
+4399	5406	CDS
+			EC_number	2.6.1.9
+			db_xref	COG:COG0079
+			gene	hisC
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q39YP6
+			locus_tag	ADMCFKJO_00115
+			product	Histidinol-phosphate aminotransferase
+5399	6838	CDS
+			db_xref	COG:COG1492
+			gene	cobQ
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P9WP95
+			locus_tag	ADMCFKJO_00116
+			product	Cobyric acid synthase
+7507	7127	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00117
+			product	hypothetical protein
+8130	9005	CDS
+			db_xref	COG:COG4558
+			gene	hmuT
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q56991
+			locus_tag	ADMCFKJO_00118
+			product	Hemin-binding periplasmic protein HmuT
+9068	10066	CDS
+			db_xref	COG:COG0609
+			gene	hmuU
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q56992
+			locus_tag	ADMCFKJO_00119
+			product	Hemin transport system permease protein HmuU
+10063	10848	CDS
+			EC_number	7.6.2.-
+			db_xref	COG:COG4559
+			gene	hmuV
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q70YG7
+			locus_tag	ADMCFKJO_00120
+			product	Hemin import ATP-binding protein HmuV
+10856	11596	CDS
+			EC_number	1.16.1.9
+			db_xref	COG:COG2375
+			gene	yqjH
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:Q46871
+			locus_tag	ADMCFKJO_00121
+			product	NADPH-dependent ferric-chelate reductase
+>Feature contig00006
+965	366	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00122
+			product	hypothetical protein
+3506	1146	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00123
+			product	hypothetical protein
+3777	3514	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00124
+			product	hypothetical protein
+4765	3770	CDS
+			EC_number	1.17.4.1
+			db_xref	COG:COG0208
+			gene	nrdF
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P50621
+			locus_tag	ADMCFKJO_00125
+			product	Ribonucleoside-diphosphate reductase subunit beta
+6909	4822	CDS
+			EC_number	1.17.4.1
+			db_xref	COG:COG0209
+			gene	nrdE
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P50620
+			locus_tag	ADMCFKJO_00126
+			product	Ribonucleoside-diphosphate reductase subunit alpha
+7319	6894	CDS
+			gene	nrdI
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_00128
+			locus_tag	ADMCFKJO_00127
+			product	Protein NrdI
+7417	7322	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00128
+			product	hypothetical protein
+7958	7476	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00129
+			product	hypothetical protein
+9345	8392	CDS
+			gene	xerC
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_01808
+			locus_tag	ADMCFKJO_00130
+			product	Tyrosine recombinase XerC
+>Feature contig00007
+784	1875	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00131
+			product	hypothetical protein
+1868	3361	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00132
+			product	hypothetical protein
+5090	4215	CDS
+			gene	noc_2
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	protein motif:HAMAP:MF_02015
+			locus_tag	ADMCFKJO_00133
+			product	Nucleoid occlusion protein
+5863	5087	CDS
+			EC_number	3.6.4.-
+			db_xref	COG:COG1192
+			gene	soj
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:UniProtKB:P37522
+			locus_tag	ADMCFKJO_00134
+			product	Sporulation initiation inhibitor protein Soj
+>Feature contig00008
+38	142	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00135
+			product	hypothetical protein
+248	1798	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00136
+			product	hypothetical protein
+>Feature contig00009
+7	153	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00137
+			product	hypothetical protein
+399	743	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00138
+			product	hypothetical protein
+704	1405	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:ISfinder:ISHahy5
+			locus_tag	ADMCFKJO_00139
+			product	IS3 family transposase ISHahy5
+>Feature contig00010
+284	997	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00140
+			product	hypothetical protein
+>Feature contig00011
+706	224	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:ISfinder:ISDra3
+			locus_tag	ADMCFKJO_00141
+			product	IS630 family transposase ISDra3
+>Feature contig00012
+21	710	CDS
+			db_xref	COG:COG3385
+			inference	ab initio prediction:Prodigal:v2.6
+			inference	similar to AA sequence:ISfinder:ISDra7
+			locus_tag	ADMCFKJO_00142
+			product	IS4 family transposase ISDra7
+>Feature contig00013
+>Feature contig00014
+>Feature contig00015
+>Feature contig00016
+122	298	CDS
+			inference	ab initio prediction:Prodigal:v2.6
+			locus_tag	ADMCFKJO_00143
+			product	hypothetical protein
+>Feature contig00017
+>Feature contig00018
+>Feature contig00019
+>Feature contig00020
+>Feature contig00021
+>Feature contig00022
+>Feature contig00023
+>Feature contig00024
+>Feature contig00025
+>Feature contig00026
+>Feature contig00027
+>Feature contig00028
+>Feature contig00029
+>Feature contig00030
+>Feature contig00031
+>Feature contig00032
+>Feature contig00033
+>Feature contig00034
+>Feature contig00035
+>Feature contig00036
+>Feature contig00037
+>Feature contig00038
+>Feature contig00039
+>Feature contig00040
