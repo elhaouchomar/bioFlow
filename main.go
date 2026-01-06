@@ -2,10 +2,12 @@ package main
 
 import (
 	"bufio"
+	"compress/gzip"
 	"context"
 	"encoding/json"
 	"flag"
 	"fmt"
+	"html/template"
 	"io"
 	"log"
 	"net/http"
@@ -42,11 +44,10 @@ type JobPayload struct {
 	FileFasta string `json:"file_fasta,omitempty"`
 }
 
-// JobStatus لتتبع التقدم
 type JobStatus struct {
-	State       string `json:"state"`        // running, completed, error
-	Progress    int    `json:"progress"`     // 0 to 100
-	CurrentStep string `json:"current_step"` // e.g., "Quality Control", "Assembly"
+	State       string `json:"state"`
+	Progress    int    `json:"progress"`
+	CurrentStep string `json:"current_step"`
 	Error       string `json:"error,omitempty"`
 }
 
@@ -54,7 +55,13 @@ type FinalReport struct {
 	JobID      string `json:"job_id"`
 	Status     string `json:"status"`
 	InputType  string `json:"input_type"`
-	Assembly   struct{ TotalLength, N50, GC, Contigs string } `json:"assembly"`
+	Timestamp  string `json:"timestamp"`
+	Assembly   struct {
+		TotalLength string `json:"total_length"`
+		N50         string `json:"n50"`
+		GC          string `json:"gc"`
+		Contigs     string `json:"contigs"`
+	} `json:"assembly"`
 }
 
 func main() {
@@ -62,7 +69,9 @@ func main() {
 	flag.Parse()
 
 	redisAddr = os.Getenv("REDIS_ADDR")
-	if redisAddr == "" { redisAddr = "localhost:6379" }
+	if redisAddr == "" {
+		redisAddr = "localhost:6379"
+	}
 
 	if *mode == "worker" {
 		runWorker(redisAddr)
@@ -72,13 +81,12 @@ func main() {
 }
 
 // ---------------------------------------------------------
-// 1. WEB SERVER (Frontend + API)
+// 1. WEB SERVER
 // ---------------------------------------------------------
 func runServer(redisAddr string) {
 	workDir, _ := filepath.Abs("workspace/jobs")
 	fs := http.FileServer(http.Dir(workDir))
 	
-
 	http.Handle("/download/", http.StripPrefix("/download/", fs))
 
 	http.HandleFunc("/", serveHTML)
@@ -89,173 +97,40 @@ func runServer(redisAddr string) {
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
+// Fonction pour décompresser les fichiers .gz
+func decompressGZ(inputPath, outputPath string) error {
+	gzFile, err := os.Open(inputPath)
+	if err != nil {
+		return err
+	}
+	defer gzFile.Close()
+
+	gzReader, err := gzip.NewReader(gzFile)
+	if err != nil {
+		return err
+	}
+	defer gzReader.Close()
+
+	outFile, err := os.Create(outputPath)
+	if err != nil {
+		return err
+	}
+	defer outFile.Close()
+
+	_, err = io.Copy(outFile, gzReader)
+	return err
+}
+
 func serveHTML(w http.ResponseWriter, r *http.Request) {
-	html := `
-	<!DOCTYPE html>
-	<html>
-	<head>
-		<title>BioFlow Pipeline</title>
-		<style>
-			body { font-family: 'Segoe UI', sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; background-color: #f8f9fa; }
-			.card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 25px; }
-			h1 { color: #2c3e50; text-align: center; margin-bottom: 30px; }
-			
-			/* Progress Bar Styles */
-			.progress-container { margin-top: 20px; display: none; }
-			.progress-bar { background-color: #e9ecef; border-radius: 8px; overflow: hidden; height: 25px; margin-bottom: 10px; }
-			.progress-fill { background-color: #3498db; height: 100%; width: 0%; transition: width 0.5s ease; text-align: center; color: white; line-height: 25px; font-size: 12px; font-weight: bold; }
-			.step-text { text-align: center; font-weight: bold; color: #555; margin-bottom: 15px; }
-			
-			/* Steps Diagram (Simple CSS representation) */
-			.steps-diagram { display: flex; justify-content: space-between; margin-top: 20px; font-size: 12px; color: #aaa; }
-			.step-item { position: relative; width: 100%; text-align: center; }
-			.step-item.active { color: #3498db; font-weight: bold; }
-			.step-item.completed { color: #27ae60; }
-			.step-item::before { content: '●'; display: block; font-size: 20px; margin-bottom: 5px; }
-			.step-item.active::before { color: #3498db; }
-			.step-item.completed::before { content: '✔'; color: #27ae60; }
-
-			.btn { background: #3498db; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 16px; }
-			.btn:disabled { background: #bdc3c7; }
-			.download-btn { display: inline-block; background: #27ae60; color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; margin: 5px; font-size: 14px; }
-			
-			select, input { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
-		</style>
-	</head>
-	<body>
-		<h1>Microbial Genomics Pipeline</h1>
-		
-		<div class="card">
-			<h3>Upload Data</h3>
-			<form id="uploadForm">
-				<label>Analysis Type:</label>
-				<select name="type" id="inputType">
-					<option value="reads">Option 1: Raw NGS Reads (FASTQ)</option>
-					<option value="genome">Option 2: Assembled Genome (FASTA)</option>
-				</select>
-
-				<div id="readsInput">
-					<input type="file" name="r1" placeholder="R1.fastq">
-					<input type="file" name="r2" placeholder="R2.fastq">
-				</div>
-				<div id="genomeInput" style="display:none;">
-					<input type="file" name="fasta" placeholder="genome.fa">
-				</div>
-				<button type="submit" class="btn" id="submitBtn">Start Pipeline</button>
-			</form>
-		</div>
-
-		<div class="card progress-container" id="statusBox">
-			<h3 style="text-align:center;">Analysis Progress</h3>
-			
-			<div class="steps-diagram" id="stepsDiagram">
-				<div class="step-item" id="step-init">Input</div>
-				<div class="step-item" id="step-qc">Quality Control</div>
-				<div class="step-item" id="step-assembly">Assembly</div>
-				<div class="step-item" id="step-annotation">Annotation</div>
-				<div class="step-item" id="step-analysis">Analysis</div>
-				<div class="step-item" id="step-report">Report</div>
-			</div>
-			<br>
-
-			<div class="progress-bar">
-				<div class="progress-fill" id="progressFill">0%</div>
-			</div>
-			<div class="step-text" id="statusText">Initializing...</div>
-			
-			<div id="resultArea" style="text-align:center; display:none; margin-top:20px;">
-				<h4>Analysis Complete!</h4>
-				<p>Your files are ready for download:</p>
-				<div id="downloadLinks"></div>
-			</div>
-		</div>
-
-		<script>
-			document.getElementById('inputType').addEventListener('change', function(e) {
-				document.getElementById('readsInput').style.display = e.target.value === 'reads' ? 'block' : 'none';
-				document.getElementById('genomeInput').style.display = e.target.value === 'genome' ? 'block' : 'none';
-			});
-
-			function updateSteps(currentStep) {
-				const steps = ['init', 'qc', 'assembly', 'annotation', 'analysis', 'report'];
-				let found = false;
-				steps.forEach(s => {
-					const el = document.getElementById('step-' + s);
-					if (s === currentStep) {
-						el.className = 'step-item active';
-						found = true;
-					} else if (!found) {
-						el.className = 'step-item completed';
-					} else {
-						el.className = 'step-item';
-					}
-				});
-			}
-
-			document.getElementById('uploadForm').addEventListener('submit', async function(e) {
-				e.preventDefault();
-				const btn = document.getElementById('submitBtn');
-				const statusBox = document.getElementById('statusBox');
-				const formData = new FormData(this);
-
-				btn.disabled = true;
-				statusBox.style.display = 'block';
-				
-				try {
-					const uploadRes = await fetch('/upload', { method: 'POST', body: formData });
-					const uploadData = await uploadRes.json();
-					const jobID = uploadData.job_id;
-
-					const poll = setInterval(async () => {
-						const res = await fetch('/status?job_id=' + jobID);
-						const status = await res.json();
-						
-						// Update Progress Bar
-						document.getElementById('progressFill').style.width = status.progress + '%';
-						document.getElementById('progressFill').innerText = status.progress + '%';
-						document.getElementById('statusText').innerText = status.current_step;
-						
-						// Update Diagram
-						let stepKey = 'init';
-						if (status.current_step.includes('Quality')) stepKey = 'qc';
-						else if (status.current_step.includes('Assembly')) stepKey = 'assembly';
-						else if (status.current_step.includes('Annotation')) stepKey = 'annotation';
-						else if (status.current_step.includes('Running Analysis')) stepKey = 'analysis';
-						else if (status.current_step.includes('Report')) stepKey = 'report';
-						updateSteps(stepKey);
-
-						if (status.state === 'completed') {
-							clearInterval(poll);
-							updateSteps('report'); // Ensure all green
-							document.getElementById('resultArea').style.display = 'block';
-							
-							// Fix Links: Ensure they point to the correct static path
-							const baseUrl = '/download/' + jobID + '/output/';
-							
-							let linksHtml = '<a href="' + baseUrl + 'final_report.html" class="download-btn" target="_blank">View HTML Report</a>';
-							linksHtml += '<a href="' + baseUrl + 'final_summary.json" class="download-btn" target="_blank">Summary JSON</a><br>';
-							linksHtml += '<a href="' + baseUrl + 'contigs.fa" class="download-btn">Contigs (FASTA)</a>';
-							linksHtml += '<a href="' + baseUrl + 'amr/amr_results.tsv" class="download-btn">AMR Results (TSV)</a>';
-							
-							document.getElementById('downloadLinks').innerHTML = linksHtml;
-							btn.disabled = false;
-						}
-					}, 2000);
-				} catch (err) {
-					alert('Error: ' + err.message);
-					btn.disabled = false;
-				}
-			});
-		</script>
-	</body>
-	</html>
-	`
-	w.Write([]byte(html))
+	http.ServeFile(w, r, "templates/index.html")
 }
 
 func handleUpload(w http.ResponseWriter, r *http.Request) {
-	if r.Method != "POST" { http.Error(w, "POST only", 405); return }
-	r.ParseMultipartForm(200 << 20)
+	if r.Method != "POST" {
+		http.Error(w, "POST only", http.StatusMethodNotAllowed)
+		return
+	}
+	r.ParseMultipartForm(200 << 20) // 200 MB
 	
 	inputType := r.FormValue("type")
 	jobID := fmt.Sprintf("job_%d", time.Now().Unix())
@@ -265,7 +140,6 @@ func handleUpload(w http.ResponseWriter, r *http.Request) {
 	os.MkdirAll(jobDir, 0777)
 	os.Chmod(filepath.Join(localWorkDir, "jobs", jobID), 0777)
 
-	// Save Initial Status
 	updateJobStatus(jobID, "running", 0, "Initializing Upload...")
 
 	var p JobPayload
@@ -304,7 +178,6 @@ func handleStatus(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// Helper to update status file
 func updateJobStatus(jobID, state string, progress int, step string) {
 	localWorkDir, _ := filepath.Abs("workspace")
 	statusFile := filepath.Join(localWorkDir, "jobs", jobID, "status.json")
@@ -312,17 +185,23 @@ func updateJobStatus(jobID, state string, progress int, step string) {
 	status := JobStatus{State: state, Progress: progress, CurrentStep: step}
 	bytes, _ := json.Marshal(status)
 	os.WriteFile(statusFile, bytes, 0644)
-	os.Chmod(statusFile, 0666) // Ensure readable
+	os.Chmod(statusFile, 0666)
 }
 
 func saveFile(r *http.Request, field, dir string) string {
 	file, header, err := r.FormFile(field)
-	if err != nil { return "" }
+	if err != nil {
+		return ""
+	}
 	defer file.Close()
+	
+	// Garder l'extension originale (.gz ou autre)
 	path := filepath.Join(dir, header.Filename)
 	out, _ := os.Create(path)
 	defer out.Close()
 	io.Copy(out, file)
+	
+	// Retourner le chemin relatif
 	rel, _ := filepath.Rel("/app/workspace", path)
 	return rel
 }
@@ -342,7 +221,6 @@ func handleBioJob(ctx context.Context, t *asynq.Task) error {
 	var p JobPayload
 	json.Unmarshal(t.Payload(), &p)
 	
-	// Helper to update status inside worker
 	updateStatus := func(prog int, step string) {
 		updateJobStatus(p.JobID, "running", prog, step)
 	}
@@ -350,34 +228,91 @@ func handleBioJob(ctx context.Context, t *asynq.Task) error {
 	workDir, _ := filepath.Abs("workspace")
 	jobDir := filepath.Join(workDir, "jobs", p.JobID)
 	outDir := filepath.Join(jobDir, "output")
+	inputDir := filepath.Join(jobDir, "input")
 	os.MkdirAll(outDir, 0777)
-	os.Chmod(outDir, 0777)
+	os.MkdirAll(inputDir, 0777)
 
 	dockerOut := fmt.Sprintf("/workspace/jobs/%s/output", p.JobID)
 	var contigs string
+	var filesToCleanup []string
 
 	// --- Step 1: QC & Assembly ---
 	if p.InputType == "reads" {
-		updateStatus(10, "Quality Control (FastQC)...")
-		runDocker(IMG_FASTQC, "fastqc", filepath.Join("/workspace", p.FileR1), filepath.Join("/workspace", p.FileR2), "-o", filepath.Join(dockerOut, "fastqc"))
+		// Préparer les chemins des fichiers
+		r1Path := filepath.Join(workDir, p.FileR1)
+		r2Path := filepath.Join(workDir, p.FileR2)
+		
+		// Vérifier si les fichiers sont compressés
+		if strings.HasSuffix(r1Path, ".gz") || strings.HasSuffix(p.FileR1, ".gz") {
+			updateStatus(10, "Decompressing R1 FASTQ.gz...")
+			decompressedR1 := strings.TrimSuffix(r1Path, ".gz")
+			if err := decompressGZ(r1Path, decompressedR1); err != nil {
+				updateJobStatus(p.JobID, "error", 0, fmt.Sprintf("Failed to decompress R1: %v", err))
+				return err
+			}
+			filesToCleanup = append(filesToCleanup, decompressedR1)
+		}
+		
+		if strings.HasSuffix(r2Path, ".gz") || strings.HasSuffix(p.FileR2, ".gz") {
+			updateStatus(12, "Decompressing R2 FASTQ.gz...")
+			decompressedR2 := strings.TrimSuffix(r2Path, ".gz")
+			if err := decompressGZ(r2Path, decompressedR2); err != nil {
+				updateJobStatus(p.JobID, "error", 0, fmt.Sprintf("Failed to decompress R2: %v", err))
+				return err
+			}
+			filesToCleanup = append(filesToCleanup, decompressedR2)
+		}
+
+		// Mettre à jour les chemins pour Docker
+		dockerR1 := filepath.Join("/workspace", strings.TrimSuffix(p.FileR1, ".gz"))
+		dockerR2 := filepath.Join("/workspace", strings.TrimSuffix(p.FileR2, ".gz"))
+
+		updateStatus(15, "Quality Control (FastQC)...")
+		// FastQC peut lire les fichiers décompressés
+		runDocker(IMG_FASTQC, "fastqc", dockerR1, dockerR2, "-o", filepath.Join(dockerOut, "fastqc"))
 		
 		updateStatus(30, "Genome Assembly (Shovill)...")
-		runDocker(IMG_SHOVILL, "shovill", "--R1", filepath.Join("/workspace", p.FileR1), "--R2", filepath.Join("/workspace", p.FileR2), "--outdir", filepath.Join(dockerOut, "shovill"), "--force", "--cpus", "2", "--ram", "4")
+		// Shovill utilise les fichiers décompressés
+		runDocker(IMG_SHOVILL, "shovill", 
+			"--R1", dockerR1,
+			"--R2", dockerR2,
+			"--outdir", filepath.Join(dockerOut, "shovill"), 
+			"--force", "--cpus", "2", "--ram", "4")
 		contigs = filepath.Join(dockerOut, "shovill", "contigs.fa")
 	} else {
+		// Pour les génomes assemblés
 		updateStatus(10, "Processing Input Genome...")
-		exec.Command("cp", filepath.Join(workDir, p.FileFasta), filepath.Join(outDir, "contigs.fa")).Run()
+		fastaPath := filepath.Join(workDir, p.FileFasta)
+		// REMOVED: var fastaForAnalysis string
+		
+		if strings.HasSuffix(fastaPath, ".gz") || strings.HasSuffix(p.FileFasta, ".gz") {
+			updateStatus(12, "Decompressing FASTA.gz...")
+			decompressedFasta := strings.TrimSuffix(fastaPath, ".gz")
+			if err := decompressGZ(fastaPath, decompressedFasta); err != nil {
+				updateJobStatus(p.JobID, "error", 0, fmt.Sprintf("Failed to decompress FASTA: %v", err))
+				return err
+			}
+			filesToCleanup = append(filesToCleanup, decompressedFasta)
+			
+			// Utiliser le fichier décompressé pour la copie
+			exec.Command("cp", decompressedFasta, filepath.Join(outDir, "contigs.fa")).Run()
+		} else {
+			// Utiliser le fichier original pour la copie
+			exec.Command("cp", fastaPath, filepath.Join(outDir, "contigs.fa")).Run()
+		}
+		
 		contigs = filepath.Join(dockerOut, "contigs.fa")
 	}
 
-	// Verify Assembly
-	// NOTE: We check local path for existence
+	// Vérifier si l'assembly a réussi
 	localContigs := filepath.Join(outDir, "contigs.fa")
-	if p.InputType == "reads" { localContigs = filepath.Join(outDir, "shovill", "contigs.fa") }
+	if p.InputType == "reads" { 
+		localContigs = filepath.Join(outDir, "shovill", "contigs.fa") 
+	}
 	
 	if _, err := os.Stat(localContigs); os.IsNotExist(err) {
-		updateJobStatus(p.JobID, "error", 0, "Assembly Failed")
-		return fmt.Errorf("assembly failed")
+		updateJobStatus(p.JobID, "error", 0, "Assembly Failed - No contigs generated")
+		return fmt.Errorf("assembly failed - no contigs generated")
 	}
 
 	// --- Step 2: Annotation ---
@@ -388,62 +323,100 @@ func handleBioJob(ctx context.Context, t *asynq.Task) error {
 	updateStatus(80, "Running Analysis (AMR, Plasmid, QUAST)...")
 	var wg sync.WaitGroup
 	wg.Add(3)
-	go func() { defer wg.Done(); runDocker(IMG_QUAST, "quast.py", contigs, "-o", filepath.Join(dockerOut, "quast")) }()
-	go func() { defer wg.Done(); runDocker(IMG_AMR, "amrfinder", "-n", contigs, "-o", filepath.Join(dockerOut, "amr", "amr_results.tsv")) }()
-	go func() { defer wg.Done(); runDocker(IMG_PLASMID, "plasmidfinder.py", "-i", contigs, "-o", filepath.Join(dockerOut, "plasmid")) }()
+	go func() { 
+		defer wg.Done() 
+		runDocker(IMG_QUAST, "quast.py", contigs, "-o", filepath.Join(dockerOut, "quast")) 
+	}()
+	go func() { 
+		defer wg.Done() 
+		runDocker(IMG_AMR, "amrfinder", "-n", contigs, "-o", filepath.Join(dockerOut, "amr", "amr_results.tsv")) 
+	}()
+	go func() { 
+		defer wg.Done() 
+		runDocker(IMG_PLASMID, "plasmidfinder.py", "-i", contigs, "-o", filepath.Join(dockerOut, "plasmid")) 
+	}()
 	wg.Wait()
 
 	// --- Step 4: Report ---
 	updateStatus(90, "Generating Final Report...")
 	generateFinalReport(p, outDir)
 	
-	// Complete
+	// Nettoyer les fichiers temporaires décompressés
+	for _, file := range filesToCleanup {
+		if _, err := os.Stat(file); err == nil {
+			os.Remove(file)
+		}
+	}
+	
 	updateJobStatus(p.JobID, "completed", 100, "Analysis Complete")
 	return nil
 }
 
-func runDocker(img string, args ...string) {
+func runDocker(img string, args ...string) error {
 	host, _ := os.Getwd()
-	if h := os.Getenv("HOST_WORKSPACE"); h != "" { host = h }
-	cmdArgs := append([]string{"run", "--rm", "-v", host + ":/workspace", "-w", "/workspace", img}, args...)
-	exec.Command("docker", cmdArgs...).Run()
+	if h := os.Getenv("HOST_WORKSPACE"); h != "" { 
+		host = h 
+	}
+	
+	cmdArgs := append([]string{
+		"run", "--rm", 
+		"-v", fmt.Sprintf("%s:/workspace", host), 
+		"-w", "/workspace", 
+		img,
+	}, args...)
+	
+	cmd := exec.Command("docker", cmdArgs...)
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		log.Printf("Docker command failed: %v\nOutput: %s", err, output)
+	}
+	return err
 }
 
 func generateFinalReport(p JobPayload, dir string) {
-	// 1. JSON Report
-	r := FinalReport{JobID: p.JobID, Status: "completed", InputType: p.InputType}
+	r := FinalReport{
+		JobID:     p.JobID,
+		Status:    "completed",
+		InputType: p.InputType,
+		Timestamp: time.Now().Format(time.RFC1123),
+	}
 	
-	// Try Read QUAST Stats
-	if f, err := os.Open(filepath.Join(dir, "quast", "transposed_report.tsv")); err == nil {
-		s := bufio.NewScanner(f); s.Scan(); s.Scan() 
+	// Lire les statistiques QUAST
+	quastFile := filepath.Join(dir, "quast", "transposed_report.tsv")
+	if f, err := os.Open(quastFile); err == nil {
+		s := bufio.NewScanner(f)
+		s.Scan() // Skip header
+		s.Scan() // First data line
 		parts := strings.Split(s.Text(), "\t")
-		if len(parts) > 1 { r.Assembly.TotalLength = parts[1]; r.Assembly.N50 = parts[14]; r.Assembly.GC = parts[16]; r.Assembly.Contigs = parts[1] }
+		if len(parts) > 16 {
+			r.Assembly.TotalLength = parts[1]
+			r.Assembly.N50 = parts[14]
+			r.Assembly.GC = parts[16]
+			r.Assembly.Contigs = parts[1]
+		}
 		f.Close()
 	}
 	
+	// Sauvegarder JSON
 	jsonBytes, _ := json.MarshalIndent(r, "", "  ")
 	os.WriteFile(filepath.Join(dir, "final_summary.json"), jsonBytes, 0644)
 
-	// 2. HTML Report
-	html := fmt.Sprintf(`
-		<html><head><style>body{font-family:sans-serif;padding:30px;line-height:1.6} .box{border:1px solid #ddd;padding:20px;margin-bottom:20px;border-radius:8px}</style></head>
-		<body>
-			<h1>Analysis Report: %s</h1>
-			<div class="box">
-				<h3>Assembly Stats</h3>
-				<ul><li>Length: %s bp</li><li>N50: %s</li><li>GC: %s%%</li><li>Contigs: %s</li></ul>
-			</div>
-			<div class="box">
-				<h3>Output Files</h3>
-				<ul>
-					<li><a href="quast/report.html">Detailed Quality Report (QUAST)</a></li>
-					<li><a href="contigs.fa">Assembled Contigs (FASTA)</a></li>
-					<li><a href="prokka/genome.gff">Annotations (GFF)</a></li>
-					<li><a href="amr/amr_results.tsv">AMR Resistance Genes (TSV)</a></li>
-				</ul>
-			</div>
-			<p>Generated by BioFlow</p>
-		</body></html>`, p.JobID, r.Assembly.TotalLength, r.Assembly.N50, r.Assembly.GC, r.Assembly.Contigs)
-	
-	os.WriteFile(filepath.Join(dir, "final_report.html"), []byte(html), 0644)
+	// Générer HTML report
+	tmplPath := filepath.Join("templates", "report.html")
+	tmpl, err := template.ParseFiles(tmplPath)
+	if err != nil {
+		log.Printf("Template Error: %v", err)
+		return
+	}
+
+	reportFile, err := os.Create(filepath.Join(dir, "final_report.html"))
+	if err != nil { 
+		log.Printf("Report File Error: %v", err)
+		return 
+	}
+	defer reportFile.Close()
+
+	if err := tmpl.Execute(reportFile, r); err != nil {
+		log.Printf("Template Execution Error: %v", err)
+	}
 }

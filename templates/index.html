@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BioFlow Pipeline</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; background-color: #f8f9fa; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 25px; }
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 30px; }
+        
+        .progress-container { margin-top: 20px; display: none; }
+        .progress-bar { background-color: #e9ecef; border-radius: 8px; overflow: hidden; height: 25px; margin-bottom: 10px; }
+        .progress-fill { background-color: #3498db; height: 100%; width: 0%; transition: width 0.5s ease; text-align: center; color: white; line-height: 25px; font-size: 12px; font-weight: bold; }
+        .step-text { text-align: center; font-weight: bold; color: #555; margin-bottom: 15px; }
+        
+        .steps-diagram { display: flex; justify-content: space-between; margin-top: 20px; font-size: 12px; color: #aaa; }
+        .step-item { position: relative; width: 100%; text-align: center; }
+        .step-item.active { color: #3498db; font-weight: bold; }
+        .step-item.completed { color: #27ae60; }
+        .step-item::before { content: '●'; display: block; font-size: 20px; margin-bottom: 5px; }
+        .step-item.active::before { color: #3498db; }
+        .step-item.completed::before { content: '✔'; color: #27ae60; }
+
+        .btn { background: #3498db; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 16px; }
+        .btn:disabled { background: #bdc3c7; }
+        .download-btn { display: inline-block; background: #27ae60; color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; margin: 5px; font-size: 14px; }
+        
+        select, input { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+    <h1>Microbial Genomics Pipeline</h1>
+    
+    <div class="card">
+        <h3>Upload Data</h3>
+        <form id="uploadForm">
+            <label>Analysis Type:</label>
+            <select name="type" id="inputType">
+                <option value="reads">Option 1: Raw NGS Reads (FASTQ)</option>
+                <option value="genome">Option 2: Assembled Genome (FASTA)</option>
+            </select>
+
+
+            <!-- Modifier seulement la section des options d'upload -->
+<div id="readsInput">
+    <input type="file" name="r1" placeholder="R1.fastq.gz" accept=".fastq.gz,.fq.gz,.gz,.fastq,.fq">
+    <input type="file" name="r2" placeholder="R2.fastq.gz" accept=".fastq.gz,.fq.gz,.gz,.fastq,.fq">
+</div>
+<div id="genomeInput" style="display:none;">
+    <input type="file" name="fasta" placeholder="genome.fa.gz" accept=".fa.gz,.fasta.gz,.fna.gz,.gz,.fa,.fasta,.fna">
+</div>
+
+            <button type="submit" class="btn" id="submitBtn">Start Pipeline</button>
+        </form>
+    </div>
+
+    <div class="card progress-container" id="statusBox">
+        <h3 style="text-align:center;">Analysis Progress</h3>
+        
+        <div class="steps-diagram" id="stepsDiagram">
+            <div class="step-item" id="step-init">Input</div>
+            <div class="step-item" id="step-qc">Quality Control</div>
+            <div class="step-item" id="step-assembly">Assembly</div>
+            <div class="step-item" id="step-annotation">Annotation</div>
+            <div class="step-item" id="step-analysis">Analysis</div>
+            <div class="step-item" id="step-report">Report</div>
+        </div>
+        <br>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill">0%</div>
+        </div>
+        <div class="step-text" id="statusText">Initializing...</div>
+        
+        <div id="resultArea" style="text-align:center; display:none; margin-top:20px;">
+            <h4>Analysis Complete!</h4>
+            <p>Your files are ready for download:</p>
+            <div id="downloadLinks"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('inputType').addEventListener('change', function(e) {
+            document.getElementById('readsInput').style.display = e.target.value === 'reads' ? 'block' : 'none';
+            document.getElementById('genomeInput').style.display = e.target.value === 'genome' ? 'block' : 'none';
+        });
+
+        function updateSteps(currentStep) {
+            const steps = ['init', 'qc', 'assembly', 'annotation', 'analysis', 'report'];
+            let found = false;
+            steps.forEach(s => {
+                const el = document.getElementById('step-' + s);
+                if (s === currentStep) {
+                    el.className = 'step-item active';
+                    found = true;
+                } else if (!found) {
+                    el.className = 'step-item completed';
+                } else {
+                    el.className = 'step-item';
+                }
+            });
+        }
+
+        document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const statusBox = document.getElementById('statusBox');
+            const formData = new FormData(this);
+
+            btn.disabled = true;
+            statusBox.style.display = 'block';
+            
+            try {
+                const uploadRes = await fetch('/upload', { method: 'POST', body: formData });
+                const uploadData = await uploadRes.json();
+                const jobID = uploadData.job_id;
+
+                const poll = setInterval(async () => {
+                    const res = await fetch('/status?job_id=' + jobID);
+                    const status = await res.json();
+                    
+                    document.getElementById('progressFill').style.width = status.progress + '%';
+                    document.getElementById('progressFill').innerText = status.progress + '%';
+                    document.getElementById('statusText').innerText = status.current_step;
+                    
+                    let stepKey = 'init';
+                    if (status.current_step.includes('Quality')) stepKey = 'qc';
+                    else if (status.current_step.includes('Assembly')) stepKey = 'assembly';
+                    else if (status.current_step.includes('Annotation')) stepKey = 'annotation';
+                    else if (status.current_step.includes('Running Analysis')) stepKey = 'analysis';
+                    else if (status.current_step.includes('Report')) stepKey = 'report';
+                    updateSteps(stepKey);
+
+                    if (status.state === 'completed') {
+                        clearInterval(poll);
+                        updateSteps('report');
+                        document.getElementById('resultArea').style.display = 'block';
+                        
+                        const baseUrl = '/download/' + jobID + '/output/';
+                        let linksHtml = '<a href="' + baseUrl + 'final_report.html" class="download-btn" target="_blank">View HTML Report</a>';
+                        linksHtml += '<a href="' + baseUrl + 'final_summary.json" class="download-btn" target="_blank">Summary JSON</a><br>';
+                        linksHtml += '<a href="' + baseUrl + 'contigs.fa" class="download-btn">Contigs (FASTA)</a>';
+                        linksHtml += '<a href="' + baseUrl + 'amr/amr_results.tsv" class="download-btn">AMR Results (TSV)</a>';
+                        
+                        document.getElementById('downloadLinks').innerHTML = linksHtml;
+                        btn.disabled = false;
+                    }
+                }, 2000);
+            } catch (err) {
+                alert('Error: ' + err.message);
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
