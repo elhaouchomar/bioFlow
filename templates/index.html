@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BioFlow | Integrated Pipeline</title>
+    <title>BioFlow | Fast Mapper</title>
     <link rel="icon" href="data:,">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -28,6 +28,7 @@
             overflow: hidden;
         }
 
+        /* Sidebar */
         .sidebar {
             width: 240px;
             background: var(--card-bg);
@@ -40,12 +41,14 @@
         .nav-item { padding: 10px 15px; border-radius: 6px; color: var(--text-muted); cursor: pointer; margin-bottom: 5px; font-size: 14px; display: flex; align-items: center; gap: 10px; }
         .nav-item.active { background-color: #eff6ff; color: var(--accent); font-weight: 600; }
 
+        /* Main Content */
         .main-content { flex: 1; padding: 40px; overflow-y: auto; display: flex; flex-direction: column; align-items: center; }
         .container-box { width: 100%; max-width: 600px; padding-bottom: 50px; }
         
         h2 { margin: 0 0 5px 0; font-size: 24px; text-align: center; }
         p.subtitle { color: var(--text-muted); margin: 0 0 25px 0; font-size: 14px; text-align: center; }
 
+        /* Form */
         .options-row { display: flex; gap: 15px; margin-bottom: 20px; }
         .radio-label { flex: 1; background: var(--card-bg); border: 1px solid var(--border); padding: 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; transition: all 0.2s; }
         .radio-label:hover { border-color: var(--accent); }
@@ -64,6 +67,7 @@
         .btn-submit { background-color: var(--accent); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: 600; margin-top: 15px; cursor: pointer; transition: 0.2s; font-size: 14px; }
         .btn-submit:disabled { background-color: #cbd5e1; cursor: not-allowed; }
 
+        /* Progress Area */
         #progressContainer { display: none; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -79,6 +83,7 @@
         .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.3s ease; }
         .current-step-text { font-size: 14px; color: var(--text-muted); font-weight: 500; }
 
+        /* Result Area */
         #resultContainer { display: none; margin-top: 25px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 20px; animation: slideUp 0.5s ease; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -172,6 +177,7 @@
     </div>
 
     <script>
+        // --- 1. Validation Logic ---
         function toggleInputs(type) {
             document.getElementById('readsInput').style.display = type === 'reads' ? 'block' : 'none';
             document.getElementById('genomeInput').style.display = type === 'genome' ? 'block' : 'none';
@@ -206,6 +212,7 @@
             btn.disabled = !isValid; 
         }
 
+        // --- 2. Visual Logic ---
         function updateStepVisual(currentStep) {
             const steps = ['init', 'qc', 'assembly', 'annotation', 'analysis', 'report'];
             let activeFound = false;
@@ -224,48 +231,48 @@
             });
         }
 
-        // --- Reset Logic (Client Side Reset) ---
+        // --- 3. Client Side RESET (No Page Reload) ---
         function resetApp() {
-            // Hide Progress and Results
+            // Hide progress and results
             document.getElementById('progressContainer').style.display = 'none';
             document.getElementById('resultContainer').style.display = 'none';
-
-            // Reset Form Inputs
+            
+            // Clear Inputs
             document.getElementById('uploadForm').reset();
             
-            // Reset File Labels
-            ['r1-status', 'r2-status', 'fasta-status'].forEach(id => {
-                const el = document.getElementById(id);
-                el.innerText = 'Required';
-                el.classList.remove('selected');
-            });
+            // Reset Text
+            document.getElementById('r1-status').innerText = "Required";
+            document.getElementById('r1-status').classList.remove('selected');
+            document.getElementById('r2-status').innerText = "Required";
+            document.getElementById('r2-status').classList.remove('selected');
+            document.getElementById('fasta-status').innerText = "Required";
+            document.getElementById('fasta-status').classList.remove('selected');
 
-            // Re-enable/Disable button
-            validateForm();
+            // Reset Button
             const btn = document.getElementById('submitBtn');
             btn.innerText = "Generate Map";
+            btn.disabled = true;
 
-            // Reset Timer & Progress UI
+            // Reset State
             document.getElementById('timerDisplay').innerText = "0s";
             document.getElementById('progressFill').style.width = "0%";
             document.getElementById('statusText').innerText = "Initializing pipeline...";
-            
-            // Reset Steps
             updateStepVisual('init');
         }
 
+        // --- 4. Processing ---
         let timerInt;
         let seconds = 0;
 
         document.getElementById('uploadForm').addEventListener('submit', async function(e) {
             e.preventDefault();
+            
             const btn = document.getElementById('submitBtn');
             btn.disabled = true;
             btn.innerText = "Processing...";
 
-            // Show Progress
+            // Show Progress below
             document.getElementById('progressContainer').style.display = 'block';
-            document.getElementById('resultContainer').style.display = 'none';
 
             // Timer
             seconds = 0;
@@ -303,7 +310,17 @@
                         clearInterval(timerInt);
                         updateStepVisual('Report');
                         document.getElementById('statusText').innerText = "All tasks finished.";
-                        showResults(jobID);
+                        
+                        // Show Results
+                        const resDiv = document.getElementById('resultContainer');
+                        resDiv.style.display = 'block';
+                        
+                        document.getElementById('zipLink').href = '/download-zip?job_id=' + jobID;
+                        document.getElementById('htmlLink').href = '/download/' + jobID + '/output/final_report.html';
+                        document.getElementById('fastaLink').href = '/download/' + jobID + '/output/contigs.fa';
+                        
+                        document.getElementById('submitBtn').innerText = "Done";
+
                     } else if (status.state === 'error') {
                         clearInterval(poll);
                         clearInterval(timerInt);
@@ -312,13 +329,6 @@
                     }
                 } catch(e) { console.error(e); }
             }, 2000);
-        }
-
-        function showResults(jobID) {
-            document.getElementById('resultContainer').style.display = 'block';
-            document.getElementById('zipLink').href = '/download-zip?job_id=' + jobID;
-            document.getElementById('htmlLink').href = '/download/' + jobID + '/output/final_report.html';
-            document.getElementById('fastaLink').href = '/download/' + jobID + '/output/contigs.fa';
         }
     </script>
 </body>

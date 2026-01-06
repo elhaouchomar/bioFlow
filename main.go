@@ -265,14 +265,14 @@ func handleBioJob(ctx context.Context, t *asynq.Task) error {
 		updateStatus(15, "Quality Control (FastQC)...")
 		runDocker(IMG_FASTQC, "fastqc", dockerR1, dockerR2, "-o", filepath.Join(dockerOut, "fastqc"))
 
-		// --- OPTIMIZATION: Use megahit assembler and more resources ---
+		// --- OPTIMIZATION 1: Use Megahit (Faster than Spades) ---
 		updateStatus(30, "Assembly (Shovill/Megahit)...")
 		err := runDocker(IMG_SHOVILL, "shovill",
 			"--R1", dockerR1,
 			"--R2", dockerR2,
 			"--outdir", filepath.Join(dockerOut, "shovill"),
-			"--assembler", "megahit", // 🚀 Much Faster
-			"--force", "--cpus", "4", "--ram", "8") // 🚀 Use more resources
+			"--assembler", "megahit", // 🚀 KEY CHANGE: Much faster assembler
+			"--force", "--cpus", "4", "--ram", "8")
 		
 		if err != nil {
 			updateJobStatus(p.JobID, "error", 0, "Assembly Failed")
@@ -300,9 +300,12 @@ func handleBioJob(ctx context.Context, t *asynq.Task) error {
 	}
 
 	// --- Step 2: Annotation ---
-	// --- OPTIMIZATION: Use --fast flag for Prokka ---
+	// --- OPTIMIZATION 2: Use --fast flag for Prokka ---
 	updateStatus(60, "Annotation (Prokka Fast)...")
-	runDocker(IMG_PROKKA, "prokka", "--outdir", filepath.Join(dockerOut, "prokka"), "--force", "--prefix", "genome", "--fast", contigs)
+	runDocker(IMG_PROKKA, "prokka", "--outdir", filepath.Join(dockerOut, "prokka"), 
+		"--force", "--prefix", "genome", 
+		"--fast", // 🚀 KEY CHANGE: Skips HMM search (Much faster)
+		contigs)
 
 	// --- Step 3: Analysis ---
 	updateStatus(80, "Parallel Analysis...")
