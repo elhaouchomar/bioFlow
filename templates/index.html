@@ -28,236 +28,65 @@
             overflow: hidden;
         }
 
-        /* Sidebar */
         .sidebar {
             width: 240px;
             background: var(--card-bg);
             border-right: 1px solid var(--border);
             padding: 25px;
-            display: flex;
-            flex-direction: column;
-            flex-shrink: 0;
+            display: flex; flex-direction: column;
         }
 
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 40px;
-            display: flex; align-items: center; gap: 10px;
-        }
+        .logo { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 40px; display: flex; align-items: center; gap: 10px; }
+        .nav-item { padding: 10px 15px; border-radius: 6px; color: var(--text-muted); cursor: pointer; margin-bottom: 5px; font-size: 14px; display: flex; align-items: center; gap: 10px; }
+        .nav-item.active { background-color: #eff6ff; color: var(--accent); font-weight: 600; }
 
-        .nav-item {
-            padding: 10px 15px;
-            border-radius: 6px;
-            color: var(--text-muted);
-            cursor: pointer;
-            margin-bottom: 5px;
-            font-size: 14px;
-            display: flex; align-items: center; gap: 10px;
-        }
-
-        .nav-item.active {
-            background-color: #eff6ff;
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            padding: 40px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .container-box {
-            width: 100%;
-            max-width: 600px;
-            padding-bottom: 50px;
-        }
-
+        .main-content { flex: 1; padding: 40px; overflow-y: auto; display: flex; flex-direction: column; align-items: center; }
+        .container-box { width: 100%; max-width: 600px; padding-bottom: 50px; }
+        
         h2 { margin: 0 0 5px 0; font-size: 24px; text-align: center; }
         p.subtitle { color: var(--text-muted); margin: 0 0 25px 0; font-size: 14px; text-align: center; }
 
-        /* --- Input Form Styles --- */
-        .options-row {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .radio-label {
-            flex: 1;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex; align-items: center; gap: 8px;
-            font-size: 13px;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
+        .options-row { display: flex; gap: 15px; margin-bottom: 20px; }
+        .radio-label { flex: 1; background: var(--card-bg); border: 1px solid var(--border); padding: 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; transition: all 0.2s; }
         .radio-label:hover { border-color: var(--accent); }
         .radio-label input { accent-color: var(--accent); }
 
-        .upload-row {
-            background: var(--card-bg);
-            border: 1px dashed #cbd5e1;
-            padding: 12px 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .upload-row:hover {
-            border-color: var(--accent);
-            background-color: #f1f5f9;
-        }
-
+        .upload-row { background: var(--card-bg); border: 1px dashed #cbd5e1; padding: 12px 15px; border-radius: 8px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: all 0.2s; }
+        .upload-row:hover { border-color: var(--accent); background-color: #f1f5f9; }
         .upload-left { display: flex; align-items: center; gap: 12px; }
-
-        .icon-box {
-            width: 32px; height: 32px;
-            background: #eff6ff;
-            color: var(--accent);
-            border-radius: 6px;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 14px;
-        }
-
+        .icon-box { width: 32px; height: 32px; background: #eff6ff; color: var(--accent); border-radius: 6px; display: flex; justify-content: center; align-items: center; font-size: 14px; }
         .upload-text { font-weight: 500; font-size: 13px; }
-
-        .file-status {
-            font-size: 11px;
-            color: #94a3b8;
-            background: #f8fafc;
-            padding: 3px 8px;
-            border-radius: 4px;
-        }
         
-        .file-status.selected {
-            color: var(--success);
-            background: #ecfdf5;
-            font-weight: 600;
-        }
-
+        .file-status { font-size: 11px; color: #94a3b8; background: #f8fafc; padding: 3px 8px; border-radius: 4px; }
+        .file-status.selected { color: var(--success); background: #ecfdf5; font-weight: 600; }
         .hidden-input { display: none; }
 
-        .btn-submit {
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 600;
-            margin-top: 15px;
-            cursor: pointer;
-            transition: 0.2s;
-            font-size: 14px;
-        }
+        .btn-submit { background-color: var(--accent); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: 600; margin-top: 15px; cursor: pointer; transition: 0.2s; font-size: 14px; }
+        .btn-submit:disabled { background-color: #cbd5e1; cursor: not-allowed; }
 
-        .btn-submit:disabled {
-            background-color: #cbd5e1;
-            cursor: not-allowed;
-        }
-
-        /* --- Progress Section (Below Button) --- */
-        #progressContainer {
-            display: none; /* Hidden initially */
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            animation: fadeIn 0.5s ease;
-        }
-
+        #progressContainer { display: none; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .timer-display {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary);
-            font-variant-numeric: tabular-nums;
-        }
+        .timer-display { font-size: 28px; font-weight: 700; color: var(--primary); font-variant-numeric: tabular-nums; }
         .timer-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
 
-        /* Steps Visualizer */
-        .steps-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 11px;
-            color: #cbd5e1;
-            font-weight: 600;
-        }
+        .steps-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 11px; color: #cbd5e1; font-weight: 600; }
         .step-name { position: relative; transition: color 0.3s; }
         .step-name.active { color: var(--accent); }
         .step-name.completed { color: var(--success); }
 
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #f1f5f9;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 8px;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: var(--accent);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
+        .progress-bar { width: 100%; height: 8px; background: #f1f5f9; border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
+        .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.3s ease; }
         .current-step-text { font-size: 14px; color: var(--text-muted); font-weight: 500; }
 
-        /* --- Results Section (Bottom of Progress) --- */
-        #resultContainer {
-            display: none; /* Hidden until finished */
-            margin-top: 25px;
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            border-radius: 10px;
-            padding: 20px;
-            animation: slideUp 0.5s ease;
-        }
-
+        #resultContainer { display: none; margin-top: 25px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 20px; animation: slideUp 0.5s ease; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .btn-zip {
-            display: block;
-            background: #10b981;
-            color: white;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 6px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 14px;
-            transition: background 0.2s;
-        }
+        .btn-zip { display: block; background: #10b981; color: white; text-decoration: none; padding: 12px; border-radius: 6px; font-weight: 600; margin-bottom: 10px; font-size: 14px; transition: background 0.2s; }
         .btn-zip:hover { background: #059669; }
-
-        .links-row {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            font-size: 13px;
-        }
+        .links-row { display: flex; justify-content: center; gap: 15px; font-size: 13px; }
         .link-item { color: var(--text-muted); text-decoration: none; border-bottom: 1px dashed #cbd5e1; }
         .link-item:hover { color: var(--accent); border-color: var(--accent); }
-
     </style>
 </head>
 <body>
@@ -288,19 +117,12 @@
 
                 <div id="readsInput">
                     <div class="upload-row" onclick="document.getElementById('r1-file').click()">
-                        <div class="upload-left">
-                            <div class="icon-box"><i class="fa-solid fa-upload"></i></div>
-                            <span class="upload-text">Select Read 1 (R1)</span>
-                        </div>
+                        <div class="upload-left"><div class="icon-box"><i class="fa-solid fa-upload"></i></div><span class="upload-text">Select Read 1 (R1)</span></div>
                         <span id="r1-status" class="file-status">Required</span>
                         <input type="file" name="r1" id="r1-file" class="hidden-input" onchange="handleFileSelect(this, 'r1-status')">
                     </div>
-
                     <div class="upload-row" onclick="document.getElementById('r2-file').click()">
-                        <div class="upload-left">
-                            <div class="icon-box"><i class="fa-solid fa-upload"></i></div>
-                            <span class="upload-text">Select Read 2 (R2)</span>
-                        </div>
+                        <div class="upload-left"><div class="icon-box"><i class="fa-solid fa-upload"></i></div><span class="upload-text">Select Read 2 (R2)</span></div>
                         <span id="r2-status" class="file-status">Required</span>
                         <input type="file" name="r2" id="r2-file" class="hidden-input" onchange="handleFileSelect(this, 'r2-status')">
                     </div>
@@ -308,10 +130,7 @@
 
                 <div id="genomeInput" style="display:none;">
                     <div class="upload-row" onclick="document.getElementById('fasta-file').click()">
-                        <div class="upload-left">
-                            <div class="icon-box"><i class="fa-solid fa-file-code"></i></div>
-                            <span class="upload-text">Select FASTA File</span>
-                        </div>
+                        <div class="upload-left"><div class="icon-box"><i class="fa-solid fa-file-code"></i></div><span class="upload-text">Select FASTA File</span></div>
                         <span id="fasta-status" class="file-status">Required</span>
                         <input type="file" name="fasta" id="fasta-file" class="hidden-input" onchange="handleFileSelect(this, 'fasta-status')">
                     </div>
@@ -333,26 +152,18 @@
                     <span id="s-report" class="step-name">Report</span>
                 </div>
 
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
                 <div id="statusText" class="current-step-text">Initializing pipeline...</div>
 
                 <div id="resultContainer">
-                    <div style="font-weight:600; color:#166534; margin-bottom:15px;">
-                        <i class="fa-solid fa-check"></i> Analysis Complete
-                    </div>
-                    
+                    <div style="font-weight:600; color:#166534; margin-bottom:15px;"><i class="fa-solid fa-check"></i> Analysis Complete</div>
                     <a id="zipLink" href="#" class="btn-zip"><i class="fa-solid fa-download"></i> Download Full ZIP</a>
-                    
                     <div class="links-row">
                         <a id="htmlLink" href="#" target="_blank" class="link-item">View HTML Report</a>
                         <a id="fastaLink" href="#" class="link-item">Download Contigs</a>
                     </div>
-
                     <div style="margin-top:15px;">
-                        <button onclick="location.reload()" style="background:none; border:none; color:#94a3b8; font-size:12px; cursor:pointer; text-decoration:underline;">Start New Project</button>
+                        <button onclick="resetApp()" style="background:none; border:none; color:#94a3b8; font-size:12px; cursor:pointer; text-decoration:underline;">Start New Project</button>
                     </div>
                 </div>
             </div>
@@ -361,7 +172,6 @@
     </div>
 
     <script>
-        // --- 1. Validation Logic ---
         function toggleInputs(type) {
             document.getElementById('readsInput').style.display = type === 'reads' ? 'block' : 'none';
             document.getElementById('genomeInput').style.display = type === 'genome' ? 'block' : 'none';
@@ -388,7 +198,7 @@
             if (type === 'reads') {
                 const r1 = document.getElementById('r1-file').files.length > 0;
                 const r2 = document.getElementById('r2-file').files.length > 0;
-                if (r1 && r2) isValid = true; // Both required
+                if (r1 && r2) isValid = true; 
             } else {
                 const fasta = document.getElementById('fasta-file').files.length > 0;
                 if (fasta) isValid = true;
@@ -396,12 +206,9 @@
             btn.disabled = !isValid; 
         }
 
-        // --- 2. Step Visualizer Logic ---
         function updateStepVisual(currentStep) {
             const steps = ['init', 'qc', 'assembly', 'annotation', 'analysis', 'report'];
             let activeFound = false;
-            
-            // Map text to key
             let key = 'init';
             if(currentStep.includes('Quality')) key = 'qc';
             else if(currentStep.includes('Assembly')) key = 'assembly';
@@ -411,32 +218,56 @@
 
             steps.forEach(s => {
                 const el = document.getElementById('s-' + s);
-                el.className = 'step-name'; // Reset
-                
-                if (s === key) {
-                    el.classList.add('active');
-                    activeFound = true;
-                } else if (!activeFound) {
-                    el.classList.add('completed');
-                }
+                el.className = 'step-name';
+                if (s === key) { el.classList.add('active'); activeFound = true; } 
+                else if (!activeFound) { el.classList.add('completed'); }
             });
         }
 
-        // --- 3. Processing Logic ---
+        // --- Reset Logic (Client Side Reset) ---
+        function resetApp() {
+            // Hide Progress and Results
+            document.getElementById('progressContainer').style.display = 'none';
+            document.getElementById('resultContainer').style.display = 'none';
+
+            // Reset Form Inputs
+            document.getElementById('uploadForm').reset();
+            
+            // Reset File Labels
+            ['r1-status', 'r2-status', 'fasta-status'].forEach(id => {
+                const el = document.getElementById(id);
+                el.innerText = 'Required';
+                el.classList.remove('selected');
+            });
+
+            // Re-enable/Disable button
+            validateForm();
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = "Generate Map";
+
+            // Reset Timer & Progress UI
+            document.getElementById('timerDisplay').innerText = "0s";
+            document.getElementById('progressFill').style.width = "0%";
+            document.getElementById('statusText').innerText = "Initializing pipeline...";
+            
+            // Reset Steps
+            updateStepVisual('init');
+        }
+
         let timerInt;
         let seconds = 0;
 
         document.getElementById('uploadForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            
             const btn = document.getElementById('submitBtn');
             btn.disabled = true;
             btn.innerText = "Processing...";
 
-            // Show Progress Container below
+            // Show Progress
             document.getElementById('progressContainer').style.display = 'block';
+            document.getElementById('resultContainer').style.display = 'none';
 
-            // Start Timer
+            // Timer
             seconds = 0;
             timerInt = setInterval(() => {
                 seconds++;
@@ -449,13 +280,10 @@
                 const uploadRes = await fetch('/upload', { method: 'POST', body: formData });
                 if(!uploadRes.ok) throw new Error("Upload failed");
                 const data = await uploadRes.json();
-                
                 trackProgress(data.job_id);
-
             } catch (err) {
                 alert("Error: " + err.message);
-                btn.disabled = false;
-                btn.innerText = "Generate Map";
+                resetApp();
                 clearInterval(timerInt);
             }
         });
@@ -466,43 +294,31 @@
                     const res = await fetch('/status?job_id=' + jobID);
                     const status = await res.json();
 
-                    // Update UI
                     document.getElementById('progressFill').style.width = status.progress + '%';
                     document.getElementById('statusText').innerText = status.current_step;
-                    
                     updateStepVisual(status.current_step);
 
                     if (status.state === 'completed') {
                         clearInterval(poll);
                         clearInterval(timerInt);
-                        
-                        // Force Report step active
                         updateStepVisual('Report');
-                        document.getElementById('statusText').innerText = "All tasks finished successfully.";
-                        
-                        // Show Results
+                        document.getElementById('statusText').innerText = "All tasks finished.";
                         showResults(jobID);
                     } else if (status.state === 'error') {
                         clearInterval(poll);
                         clearInterval(timerInt);
                         alert("Pipeline Error: " + status.error);
-                        location.reload();
+                        resetApp();
                     }
                 } catch(e) { console.error(e); }
             }, 2000);
         }
 
         function showResults(jobID) {
-            const resDiv = document.getElementById('resultContainer');
-            resDiv.style.display = 'block';
-            
+            document.getElementById('resultContainer').style.display = 'block';
             document.getElementById('zipLink').href = '/download-zip?job_id=' + jobID;
             document.getElementById('htmlLink').href = '/download/' + jobID + '/output/final_report.html';
             document.getElementById('fastaLink').href = '/download/' + jobID + '/output/contigs.fa';
-            
-            // Re-enable button text for clarity (though clicking it does nothing without reload/reset)
-            const btn = document.getElementById('submitBtn');
-            btn.innerText = "Done";
         }
     </script>
 </body>

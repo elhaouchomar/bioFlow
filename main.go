@@ -88,9 +88,7 @@ func runServer(redisAddr string) {
 	workDir, _ := filepath.Abs("workspace/jobs")
 	fs := http.FileServer(http.Dir(workDir))
 
-	// Serve output files for download
 	http.Handle("/download/", http.StripPrefix("/download/", fs))
-
 	http.HandleFunc("/", serveHTML)
 	http.HandleFunc("/upload", handleUpload)
 	http.HandleFunc("/status", handleStatus)
@@ -129,7 +127,6 @@ func handleUpload(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "POST only", http.StatusMethodNotAllowed)
 		return
 	}
-	// Allow up to 500MB upload
 	r.ParseMultipartForm(500 << 20)
 
 	inputType := r.FormValue("type")
@@ -190,17 +187,12 @@ func updateJobStatus(jobID, state string, progress int, step string) {
 
 func saveFile(r *http.Request, field, dir string) string {
 	file, header, err := r.FormFile(field)
-	if err != nil {
-		return ""
-	}
+	if err != nil { return "" }
 	defer file.Close()
-
 	path := filepath.Join(dir, header.Filename)
 	out, _ := os.Create(path)
 	defer out.Close()
 	io.Copy(out, file)
-
-	// Return path relative to /app/workspace for internal usage
 	rel, _ := filepath.Rel("/app/workspace", path)
 	return rel
 }
@@ -220,15 +212,12 @@ func decompressGZ(inputPath, outputPath string) error {
 	gzFile, err := os.Open(inputPath)
 	if err != nil { return err }
 	defer gzFile.Close()
-
 	gzReader, err := gzip.NewReader(gzFile)
 	if err != nil { return err }
 	defer gzReader.Close()
-
 	outFile, err := os.Create(outputPath)
 	if err != nil { return err }
 	defer outFile.Close()
-
 	_, err = io.Copy(outFile, gzReader)
 	return err
 }
@@ -257,111 +246,79 @@ func handleBioJob(ctx context.Context, t *asynq.Task) error {
 		r1Path := filepath.Join(workDir, p.FileR1)
 		r2Path := filepath.Join(workDir, p.FileR2)
 
-		// Decompress R1 if needed
 		if strings.HasSuffix(r1Path, ".gz") {
 			updateStatus(10, "Decompressing R1...")
 			decompressedR1 := strings.TrimSuffix(r1Path, ".gz")
-			if err := decompressGZ(r1Path, decompressedR1); err != nil {
-				updateJobStatus(p.JobID, "error", 0, "Failed to decompress R1")
-				return err
-			}
+			decompressGZ(r1Path, decompressedR1)
 			filesToCleanup = append(filesToCleanup, decompressedR1)
 		}
-
-		// Decompress R2 if needed
 		if strings.HasSuffix(r2Path, ".gz") {
 			updateStatus(12, "Decompressing R2...")
 			decompressedR2 := strings.TrimSuffix(r2Path, ".gz")
-			if err := decompressGZ(r2Path, decompressedR2); err != nil {
-				updateJobStatus(p.JobID, "error", 0, "Failed to decompress R2")
-				return err
-			}
+			decompressGZ(r2Path, decompressedR2)
 			filesToCleanup = append(filesToCleanup, decompressedR2)
 		}
 
-		// Prepare Paths for Docker (mapped to /workspace)
 		dockerR1 := filepath.Join("/workspace", strings.TrimSuffix(p.FileR1, ".gz"))
 		dockerR2 := filepath.Join("/workspace", strings.TrimSuffix(p.FileR2, ".gz"))
 
 		updateStatus(15, "Quality Control (FastQC)...")
 		runDocker(IMG_FASTQC, "fastqc", dockerR1, dockerR2, "-o", filepath.Join(dockerOut, "fastqc"))
 
-		updateStatus(30, "Genome Assembly (Shovill)...")
+		// --- OPTIMIZATION: Use megahit assembler and more resources ---
+		updateStatus(30, "Assembly (Shovill/Megahit)...")
 		err := runDocker(IMG_SHOVILL, "shovill",
 			"--R1", dockerR1,
 			"--R2", dockerR2,
 			"--outdir", filepath.Join(dockerOut, "shovill"),
-			"--force", "--cpus", "2", "--ram", "4")
-        
-        if err != nil {
-            updateJobStatus(p.JobID, "error", 0, "Assembly Failed")
-            return err
-        }
+			"--assembler", "megahit", // 🚀 Much Faster
+			"--force", "--cpus", "4", "--ram", "8") // 🚀 Use more resources
+		
+		if err != nil {
+			updateJobStatus(p.JobID, "error", 0, "Assembly Failed")
+			return err
+		}
 
-		// Normalize: Copy result to main output folder for consistency
-		srcContigs := filepath.Join(outDir, "shovill", "contigs.fa")
-		dstContigs := filepath.Join(outDir, "contigs.fa")
-		exec.Command("cp", srcContigs, dstContigs).Run()
+		exec.Command("cp", filepath.Join(outDir, "shovill", "contigs.fa"), filepath.Join(outDir, "contigs.fa")).Run()
 		contigs = filepath.Join(dockerOut, "contigs.fa")
 
 	} else {
-		// Input Genome
 		updateStatus(10, "Processing Input Genome...")
 		fastaPath := filepath.Join(workDir, p.FileFasta)
 		dstContigs := filepath.Join(outDir, "contigs.fa")
-
 		if strings.HasSuffix(fastaPath, ".gz") {
-			updateStatus(12, "Decompressing FASTA...")
-			if err := decompressGZ(fastaPath, dstContigs); err != nil {
-				updateJobStatus(p.JobID, "error", 0, "Failed to decompress FASTA")
-				return err
-			}
+			decompressGZ(fastaPath, dstContigs)
 		} else {
 			exec.Command("cp", fastaPath, dstContigs).Run()
 		}
 		contigs = filepath.Join(dockerOut, "contigs.fa")
 	}
 
-	// Verify Assembly Exists
 	if _, err := os.Stat(filepath.Join(outDir, "contigs.fa")); os.IsNotExist(err) {
 		updateJobStatus(p.JobID, "error", 0, "Assembly Failed - No contigs found")
 		return fmt.Errorf("assembly failed")
 	}
 
 	// --- Step 2: Annotation ---
-	updateStatus(60, "Genome Annotation (Prokka)...")
-	runDocker(IMG_PROKKA, "prokka", "--outdir", filepath.Join(dockerOut, "prokka"), "--force", "--prefix", "genome", contigs)
+	// --- OPTIMIZATION: Use --fast flag for Prokka ---
+	updateStatus(60, "Annotation (Prokka Fast)...")
+	runDocker(IMG_PROKKA, "prokka", "--outdir", filepath.Join(dockerOut, "prokka"), "--force", "--prefix", "genome", "--fast", contigs)
 
 	// --- Step 3: Analysis ---
-	updateStatus(80, "Running Analysis (AMR, Plasmid, QUAST)...")
+	updateStatus(80, "Parallel Analysis...")
 	var wg sync.WaitGroup
 	wg.Add(3)
-	go func() {
-		defer wg.Done()
-		runDocker(IMG_QUAST, "quast.py", contigs, "-o", filepath.Join(dockerOut, "quast"))
-	}()
-	go func() {
-		defer wg.Done()
-		runDocker(IMG_AMR, "amrfinder", "-n", contigs, "-o", filepath.Join(dockerOut, "amr", "amr_results.tsv"))
-	}()
-	go func() {
-		defer wg.Done()
-		runDocker(IMG_PLASMID, "plasmidfinder.py", "-i", contigs, "-o", filepath.Join(dockerOut, "plasmid"))
-	}()
+	go func() { defer wg.Done(); runDocker(IMG_QUAST, "quast.py", contigs, "-o", filepath.Join(dockerOut, "quast")) }()
+	go func() { defer wg.Done(); runDocker(IMG_AMR, "amrfinder", "-n", contigs, "-o", filepath.Join(dockerOut, "amr", "amr_results.tsv")) }()
+	go func() { defer wg.Done(); runDocker(IMG_PLASMID, "plasmidfinder.py", "-i", contigs, "-o", filepath.Join(dockerOut, "plasmid")) }()
 	wg.Wait()
 
-	// --- Step 4: Report ---
-	updateStatus(90, "Generating Final Report...")
+	// --- Step 4 & 5 ---
+	updateStatus(90, "Generating Reports...")
 	generateFinalReport(p, outDir)
-
-	// --- Step 5: ZIP ---
-	updateStatus(95, "Creating ZIP archive...")
 	createZipArchive(outDir, filepath.Join(outDir, "results.zip"))
 
-	// Cleanup temp files
-	for _, f := range filesToCleanup {
-		os.Remove(f)
-	}
+	for _, f := range filesToCleanup { os.Remove(f) }
 
 	updateJobStatus(p.JobID, "completed", 100, "Analysis Complete")
 	return nil
@@ -371,45 +328,23 @@ func createZipArchive(sourceDir, zipPath string) error {
 	zipFile, err := os.Create(zipPath)
 	if err != nil { return err }
 	defer zipFile.Close()
-
 	archive := zip.NewWriter(zipFile)
 	defer archive.Close()
-
 	return filepath.Walk(sourceDir, func(path string, info os.FileInfo, err error) error {
-		if err != nil { return err }
-		if info.IsDir() { return nil }
-
-        // Skip the zip file itself if it's inside the folder we are zipping
-        if path == zipPath { return nil }
-
+		if err != nil || info.IsDir() || path == zipPath { return nil }
 		relPath, _ := filepath.Rel(sourceDir, path)
-		zipRelPath := filepath.ToSlash(relPath)
-
-		w, err := archive.Create(zipRelPath)
-		if err != nil { return err }
-
-		f, err := os.Open(path)
-		if err != nil { return err }
-		defer f.Close()
-
-		_, err = io.Copy(w, f)
-		return err
+		w, _ := archive.Create(filepath.ToSlash(relPath))
+		f, _ := os.Open(path)
+		io.Copy(w, f)
+		f.Close()
+		return nil
 	})
 }
 
 func runDocker(img string, args ...string) error {
 	host, _ := os.Getwd()
-	if h := os.Getenv("HOST_WORKSPACE"); h != "" {
-		host = h
-	}
-
-	cmdArgs := append([]string{
-		"run", "--rm",
-		"-v", fmt.Sprintf("%s:/workspace", host),
-		"-w", "/workspace",
-		img,
-	}, args...)
-
+	if h := os.Getenv("HOST_WORKSPACE"); h != "" { host = h }
+	cmdArgs := append([]string{"run", "--rm", "-v", fmt.Sprintf("%s:/workspace", host), "-w", "/workspace", img}, args...)
 	cmd := exec.Command("docker", cmdArgs...)
 	output, err := cmd.CombinedOutput()
 	if err != nil {
@@ -426,36 +361,20 @@ func generateFinalReport(p JobPayload, dir string) {
 		InputType: p.InputType,
 		Timestamp: time.Now().Format(time.RFC1123),
 	}
-
-	// Parse QUAST
 	if f, err := os.Open(filepath.Join(dir, "quast", "transposed_report.tsv")); err == nil {
-		s := bufio.NewScanner(f)
-		s.Scan() // Skip Header
-		s.Scan() // Data
+		s := bufio.NewScanner(f); s.Scan(); s.Scan()
 		parts := strings.Split(s.Text(), "\t")
 		if len(parts) > 16 {
-			r.Assembly.TotalLength = parts[1]
-			r.Assembly.N50 = parts[14]
-			r.Assembly.GC = parts[16]
-			r.Assembly.Contigs = parts[1]
+			r.Assembly.TotalLength = parts[1]; r.Assembly.N50 = parts[14]; r.Assembly.GC = parts[16]; r.Assembly.Contigs = parts[1]
 		}
 		f.Close()
 	}
-
-	// Save JSON
 	jsonBytes, _ := json.MarshalIndent(r, "", "  ")
 	os.WriteFile(filepath.Join(dir, "final_summary.json"), jsonBytes, 0644)
-
-	// Generate HTML Report
 	tmplPath, _ := filepath.Abs("templates/report.html")
-	tmpl, err := template.ParseFiles(tmplPath)
-	if err != nil {
-		log.Printf("Template Error: %v", err)
-		return
+	if tmpl, err := template.ParseFiles(tmplPath); err == nil {
+		f, _ := os.Create(filepath.Join(dir, "final_report.html"))
+		tmpl.Execute(f, r)
+		f.Close()
 	}
-
-	f, err := os.Create(filepath.Join(dir, "final_report.html"))
-	if err != nil { return }
-	defer f.Close()
-	tmpl.Execute(f, r)
 }

@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-echo "🧬 Downloading REAL Biological Test Data..."
+echo "Downloading REAL Biological Test Data..."
 
 mkdir -p workspace/input
 

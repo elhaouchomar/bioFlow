@@ -1,86 +1,0 @@
-[shovill] Hello stranger
-[shovill] You ran: /shovill-1.1.0/bin/shovill --R1 /workspace/jobs/job_1767666078/input/R1.fastq --R2 /workspace --outdir /workspace/jobs/job_1767666078/output/shovill --force --cpus 2 --ram 4
-[shovill] This is shovill 1.1.0
-[shovill] Written by Torsten Seemann
-[shovill] Homepage is https://github.com/tseemann/shovill
-[shovill] Operating system is linux
-[shovill] Perl version is v5.22.1
-[shovill] Machine has 12 CPU cores and 15.00 GB RAM
-[shovill] Using bwa - /bwa/bwa-0.7.17/bwa | Version: 0.7.17-r1188
-[shovill] Using flash - /flash/FLASH-1.2.11/flash | FLASH v1.2.11
-[shovill] Using java - /usr/bin/java | openjdk version "9-internal"
-[shovill] Using kmc - /kmc/kmc | K-Mer Counter (KMC) ver. 3.1.1 (2019-05-19)
-[shovill] Using lighter - /Lighter-1.1.1/lighter | Lighter v1.1.1
-[shovill] Using megahit - /megahit/megahit_v1.1.4_LINUX_CPUONLY_x86_64-bin/megahit | MEGAHIT v1.1.3
-[shovill] Using megahit_toolkit - /megahit/megahit_v1.1.4_LINUX_CPUONLY_x86_64-bin/megahit_toolkit | v1.1.3
-[shovill] Using pigz - /usr/bin/pigz | pigz 2.3.1
-[shovill] Using pilon - /pilon/pilon | Pilon version 1.24 Thu Jan 28 13:00:45 2021 -0500
-[shovill] Using samclip - /samclip/samclip | samclip 0.4.0
-[shovill] Using samtools - /usr/local/bin/samtools | Version: 1.16.1 (using htslib 1.16)
-[shovill] Using seqtk - /usr/local/bin/seqtk | Version: 1.3-r106
-[shovill] Using skesa - /skesa/skesa | SKESA v.2.3.0
-[shovill] Using spades.py - /SPAdes-3.15.5-Linux/bin/spades.py | SPAdes genome assembler v3.15.5
-[shovill] Using trimmomatic - /trimmomatic/trimmomatic | 0.39
-[shovill] Using velvetg - /velvet/velvet-1.2.10/velvetg | Version 1.2.10
-[shovill] Using velveth - /velvet/velvet-1.2.10/velveth | Version 1.2.10
-[shovill] Found spades version: 003015000
-[shovill] Will use spades 003015000 options: --isolate and --merged
-[shovill] Forced overwrite of existing --outdir /workspace/jobs/job_1767666078/output/shovill
-[shovill] Using tempdir: /tmp/hQ4Imhhtcy
-[shovill] Changing into folder: /workspace/jobs/job_1767666078/output/shovill
-[shovill] Collecting raw read statistics with 'seqtk'
-[shovill] Running: seqtk fqchk -q3 \/workspace\/jobs\/job_1767666078\/input\/R1\.fastq >/tmp/9WFH8MqRBO 2>&1 | sed 's/^/[seqtk] /' | tee -a shovill.log
-[shovill] Read stats: max_len = 150
-[shovill] Read stats: total_bp = 15000000
-[shovill] Read stats: min_len = 150
-[shovill] Read stats: avg_len = 150
-[shovill] Estimating genome size by counting unqiue 21-mers > frequency 10 
-[shovill] Running: kmc -sm -m2 -t2 -k21 -ci10 \/workspace\/jobs\/job_1767666078\/input\/R1\.fastq /tmp/jriB3lXrp3/kmc /tmp/jriB3lXrp3 2>&1 | sed 's/^/[kmc] /' | tee -a shovill.log
-[kmc] *******
-[kmc] Stage 1: 0%Stage 1: 100%
-[kmc] Stage 2: 0%Stage 2: 4%Stage 2: 8%Stage 2: 12%Stage 2: 16%Stage 2: 20%Stage 2: 23%Stage 2: 27%Stage 2: 30%Stage 2: 33%Stage 2: 36%Stage 2: 39%Stage 2: 42%Stage 2: 44%Stage 2: 47%Stage 2: 50%Stage 2: 52%Stage 2: 54%Stage 2: 57%Stage 2: 59%Stage 2: 61%Stage 2: 63%Stage 2: 65%Stage 2: 67%Stage 2: 69%Stage 2: 70%Stage 2: 72%Stage 2: 74%Stage 2: 75%Stage 2: 77%Stage 2: 78%Stage 2: 80%Stage 2: 81%Stage 2: 82%Stage 2: 84%Stage 2: 85%Stage 2: 86%Stage 2: 87%Stage 2: 88%Stage 2: 89%Stage 2: 90%Stage 2: 91%Stage 2: 92%Stage 2: 93%Stage 2: 94%Stage 2: 95%Stage 2: 96%Stage 2: 97%Stage 2: 98%Stage 2: 99%Stage 2: 100%
-[kmc] 
-[kmc] 1st stage: 0.506626s
-[kmc] 2nd stage: 1.30723s
-[kmc] 3rd stage: 0.002596s
-[kmc] Total    : 1.81645s
-[kmc] Tmp size : 7MB
-[kmc] Tmp size strict memory : 0MB
-[kmc] Tmp total: 7MB
-[kmc] 
-[kmc] Stats:
-[kmc]    No. of k-mers below min. threshold :      1987956
-[kmc]    No. of k-mers above max. threshold :            0
-[kmc]    No. of unique k-mers               :      2153282
-[kmc]    No. of unique counted k-mers       :       165326
-[kmc]    Total no. of k-mers                :      6499306
-[kmc]    Total no. of reads                 :        50000
-[kmc]    Total no. of super-k-mers          :       950610
-[shovill] Using genome size 165326 bp
-[shovill] Estimated sequencing depth: 90 x
-[shovill] No read depth reduction requested or necessary.
-[shovill] Appending -Xmx4g to _JAVA_OPTIONS
-[shovill] Running: ln -sf \/workspace\/jobs\/job_1767666078\/input\/R1\.fastq R1.fq.gz 2>&1 | sed 's/^/[ln] /' | tee -a shovill.log
-[shovill] Running: ln -sf \/workspace R2.fq.gz 2>&1 | sed 's/^/[ln] /' | tee -a shovill.log
-[shovill] Average read length looks like 150 bp
-[shovill] Automatically setting --minlen to 75
-[shovill] Setting k-mer range to (31 .. 112)
-[shovill] Estimated K-mers: 31 51 71 91 111 [kn=5, ks=20, kmin=31, kmax=112]
-[shovill] Using kmers: 31,51,71,91,111
-[shovill] Correcting reads with 'Lighter'
-[shovill] Running: lighter -od . -r R1.fq.gz -r R2.fq.gz -K 32 165326 -t 2 -maxcor 1 2>&1 | sed 's/^/[lighter] /' | tee -a shovill.log
-[lighter] "R2.fq.gz"'s format is wrong.
-[shovill] Overlapping/stitching PE reads with 'FLASH'
-[shovill] Running: flash -m 20 -M 150 -d . -o flash -z -t 2 R1.cor.fq.gz R2.cor.fq.gz 2>&1 | sed 's/^//' | tee -a shovill.log
-[FLASH] ERROR: Failed to open "R2.cor.fq.gz" for reading: No such file or directory
-[FLASH] FLASH did not complete successfully; exiting with failure status (1)
-[shovill] Assembling reads with 'spades'
-[shovill] Running: spades.py -1 flash.notCombined_1.fastq.gz -2 flash.notCombined_2.fastq.gz --isolate --threads 2 --memory 4 -o spades --tmp-dir /tmp/hQ4Imhhtcy -k 31,51,71,91,111  --merged flash.extendedFrags.fastq.gz 2>&1 | sed 's/^/[spades] /' | tee -a shovill.log
-[spades] 
-[spades] 
-[spades] == Error ==  file not found: /workspace/jobs/job_1767666078/output/shovill/flash.extendedFrags.fastq.gz (merged reads, library number: 1, library type: paired-end)
-[spades] 
-[spades] In case you have troubles running SPAdes, you can write to spades.support@cab.spbu.ru
-[spades] or report an issue on our GitHub repository github.com/ablab/spades
-[spades] Please provide us with params.txt and spades.log files from the output directory.
-[shovill] Assembly failed - spades.fasta has zero contigs!
